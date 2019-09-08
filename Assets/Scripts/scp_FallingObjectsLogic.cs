@@ -15,9 +15,11 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private Vector2 posC;
     private Vector2 posD;
     private Vector2 posE;
-    //Spawner Method Variables
-    public float timer = 20f;
-    public int timeBetweenPackages = 2;
+    //Timer Method Variables
+    public float countdown = 3f;
+    public float timer = 3f;
+    public float timeBetweenPackages = 2f;
+    //Deploy Method Variables
     private GameObject packageClone;
     public int packageRandomness;
     public int packageLocation;
@@ -34,17 +36,18 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TestSpace();
+        Countdown();
+    }
+
+    private void TestSpace()
+    {
         if (Input.GetKeyDown("space"))
         {
             DeployPackage();
+            
         }
     }
-
-    private void SpawnerLogic()
-    {
-        
-    }
-
 
 
     private void InitialisationParameters()
@@ -61,6 +64,28 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         posArray[2] = posC;
         posArray[3] = posD;
         posArray[4] = posE; 
+    }
+
+    private void Countdown()
+    {
+        countdown -= Time.deltaTime;
+
+        if (countdown <= 0)
+        {
+            DeployOrder();            
+        }
+    }
+
+    private void DeployOrder()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            DeployPackage();
+            timer = 3f;
+        }
+        
     }
 
     private void DeployPackage()
