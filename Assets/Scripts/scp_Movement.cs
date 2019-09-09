@@ -27,21 +27,12 @@ public class scp_Movement : MonoBehaviour
 
     private void CharacterController()
     {
-        if (Input.GetKeyDown("right"))
-        {
-            //move right
-            RunCharacter(rightSpeed);
-        }
-        if (Input.GetKeyDown("left"))
-        {
-            //move left
-            RunCharacter(leftSpeed);
-        }
+        
     }
 
     private void InitialisationValues()
     {
-        characterBody = character.GetComponent<Rigidbody2D>();
+        characterBody = GetComponent<Rigidbody2D>();
     }
     private void RunCharacter(float horizontalImput)
     {
