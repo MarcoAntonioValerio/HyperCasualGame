@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class scp_GameManager : MonoBehaviour
 {
+    //Initial Values
+    public int score;
+    public int packageValue = 123;
+
+    private void Awake()
+    {
+        Initialisation();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +22,10 @@ public class scp_GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void Initialisation()
+    {
+        score = 0;
     }
 }

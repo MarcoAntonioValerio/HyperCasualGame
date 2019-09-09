@@ -2,35 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class scp_UIManager : MonoBehaviour
 {
     public Text countdownText;
     public Text timerText;
-    public scp_FallingObjectsLogic packages;
+    public TextMeshProUGUI scoreTextBox;
+    public string testString = "Test String";
+
+    private scp_FallingObjectsLogic packages;
+    private scp_GameManager gameManager;
 
     private void Awake()
     {
-        SetUp();
+        Initialisation();
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }    
-
-    // Update is called once per frame
+    
     void Update()
     {
-        countdownText.text = packages.countdown.ToString();
-        timerText.text = packages.timer.ToString();
-
+        ScoreUpdater();
     }
 
-    private void SetUp()
+    public void ScoreUpdater()
     {
-        countdownText   = GameObject.Find("txt_CountdownText").GetComponent<Text>();
-        timerText       = GameObject.Find("txt_TimerText").GetComponent<Text>();
-        packages = FindObjectOfType<scp_FallingObjectsLogic>();
+        scoreTextBox.text   = "Score:" + gameManager.score.ToString(); ; ;
+    }
+
+    private void TestingStuff()
+    {
+        countdownText.text  = packages.countdown.ToString();
+        timerText.text      = packages.timer.ToString();
+    }
+
+    private void Initialisation()
+    {
+        countdownText       = GameObject.Find("txt_CountdownText").GetComponent<Text>();
+        timerText           = GameObject.Find("txt_TimerText").GetComponent<Text>();
+        scoreTextBox        = GameObject.Find("txtPro_Score").GetComponent<TextMeshProUGUI>();
+        
+        scoreTextBox.text   = "Score:" + gameManager.score.ToString(); 
+
+        packages            = FindObjectOfType<scp_FallingObjectsLogic>();
+        gameManager         = FindObjectOfType<scp_GameManager>();
     }
 }
