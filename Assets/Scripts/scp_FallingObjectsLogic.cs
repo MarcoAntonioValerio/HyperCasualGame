@@ -9,7 +9,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     public GameObject[] packages;
     
     //Spawn Positions
-    public Vector2[] posArray;
+    public  Vector2[] posArray;
     private Vector2 posA;
     private Vector2 posB;
     private Vector2 posC;

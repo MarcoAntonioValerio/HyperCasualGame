@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class scp_GameManager : MonoBehaviour
 {
-    //Initial Values
+    //Variables
     public int score;
-    public int packageValue = 123;
+    public int packageAValue = 123;
+    public int packageBValue = 320;
+    public int packageCValue = -100;
 
     private void Awake()
     {
