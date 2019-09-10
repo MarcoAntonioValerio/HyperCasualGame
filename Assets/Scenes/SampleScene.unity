@@ -1096,10 +1096,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: rightVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: leftVelocity
+      value: -8
+      objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_Name
       value: spr_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
@@ -1161,5 +1181,16 @@ PrefabInstance:
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 519420031}
-    m_RemovedComponents: []
+    - target: {fileID: 7823425273942441724, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.000000009501272
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441724, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.08215167
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5242669841313144905, guid: fcc8838312df518479b1bc21e6db18a6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fcc8838312df518479b1bc21e6db18a6, type: 3}
