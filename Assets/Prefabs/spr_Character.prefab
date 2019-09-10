@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 7823425273942441724}
   - component: {fileID: 7823425273942441726}
   - component: {fileID: -2342553309369537330}
+  - component: {fileID: 8843590717496975853}
   - component: {fileID: 7837262457415885295}
-  - component: {fileID: 5242669841313144905}
   m_Layer: 0
   m_Name: spr_Character
   m_TagString: Untagged
@@ -180,6 +180,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3907f1af37df4c96d5ee577fbe1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8843590717496975853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823425273942441723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae1817d55d0f4044a59d76f27ec29c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  startDashTime: 0
 --- !u!114 &7837262457415885295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,39 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece27f0c4286c4f4f86acd2be8808976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 300
-  leftSpeed: -1
-  rightSpeed: 1
-  character: {fileID: 0}
---- !u!114 &5242669841313144905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7823425273942441723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5261a45a9404d5a47a7e3b0448531a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 0
-  m_CrouchSpeed: 0
-  m_MovementSmoothing: 0.05
-  m_AirControl: 0
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 55
-  m_GroundCheck: {fileID: 1692933837218696852}
-  m_CeilingCheck: {fileID: 0}
-  m_CrouchDisableCollider: {fileID: 0}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  runSpeed: 40
+  rightVelocity: 2
+  leftVelocity: -2
+  dashSpeed: 0
+  startDashTime: 0

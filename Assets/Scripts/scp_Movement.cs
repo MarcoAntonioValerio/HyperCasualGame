@@ -8,10 +8,13 @@ public class scp_Movement : MonoBehaviour
     private Rigidbody2D rigid2d;
 
     //Variables
+    [Header("Movement Values")]
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     [SerializeField] private int rightVelocity  =  2;
     [SerializeField] private int leftVelocity   = -2;
+    
+
     void Start()
     {
         InitialisationValues();
@@ -20,8 +23,7 @@ public class scp_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
+       
     }
 
     private void FixedUpdate()
@@ -40,11 +42,13 @@ public class scp_Movement : MonoBehaviour
 
         }
     }
+
     
 
     private void InitialisationValues()
     {
-        rigid2d = GetComponent<Rigidbody2D>();        
+        rigid2d = GetComponent<Rigidbody2D>();
+        rigid2d.freezeRotation = true;
     }   
 
 

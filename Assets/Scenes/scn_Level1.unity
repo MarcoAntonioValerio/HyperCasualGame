@@ -335,13 +335,13 @@ TextMesh:
   m_GameObject: {fileID: 241764317}
   m_Text: 'TODO
 
-    -Sort out Character Controller
+    -Implement a dash
 
-    -Find a Style
+    -Find a Style/Game Idea
 
     -Add dynamic difficulty
 
-    -Make it look like a bloody game!'
+    -Polish/Game Feel'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1106,6 +1106,16 @@ PrefabInstance:
       propertyPath: leftVelocity
       value: -8
       objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: startDashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_Name
@@ -1190,6 +1200,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.08215167
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843590717496975853, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843590717496975853, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: startDashTime
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5242669841313144905, guid: fcc8838312df518479b1bc21e6db18a6, type: 3}
