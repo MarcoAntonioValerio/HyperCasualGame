@@ -20,8 +20,8 @@ public class scp_Dash : MonoBehaviour
     {
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button5)) { direction = 2; }
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button4)) { direction = 1; }
+            if      (Input.GetAxisRaw("Horizontal")== 1) { direction = 2; }
+            else if (Input.GetAxisRaw("Horizontal")==  -1) { direction = 1; }
         }
         else
         {

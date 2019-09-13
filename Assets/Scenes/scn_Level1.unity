@@ -335,10 +335,6 @@ TextMesh:
   m_GameObject: {fileID: 241764317}
   m_Text: 'TODO
 
-    -Implement a dash
-
-    -Find a Style/Game Idea
-
     -Add dynamic difficulty
 
     -Polish/Game Feel'
@@ -521,6 +517,31 @@ Transform:
   m_Father: {fileID: 1667591468}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &691154087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7823425275215585385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &691154088
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691154087}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad6f5af3bc081e14b810cb72baa331d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &928451829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1117,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Name
+      value: spr_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: rightVelocity
@@ -1115,21 +1151,6 @@ PrefabInstance:
         type: 3}
       propertyPath: dashSpeed
       value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_Name
-      value: spr_Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
@@ -1186,6 +1207,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.546667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 12.54667
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.54667
+      objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441726, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: MainCamera
@@ -1201,6 +1237,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.08215167
       objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441724, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8843590717496975853, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: dashSpeed
@@ -1211,6 +1252,28 @@ PrefabInstance:
       propertyPath: startDashTime
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: acdb31959a5f06c4c9752a75ad5eeeb7,
+        type: 3}
+    - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.18692887
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5242669841313144905, guid: fcc8838312df518479b1bc21e6db18a6, type: 3}
+    - {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fcc8838312df518479b1bc21e6db18a6, type: 3}
