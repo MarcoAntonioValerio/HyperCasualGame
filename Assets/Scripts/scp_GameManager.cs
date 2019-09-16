@@ -6,9 +6,8 @@ public class scp_GameManager : MonoBehaviour
 {
     //Variables
     public int score;
-    public int packageAValue = 123;
-    public int packageBValue = 320;
-    public int packageCValue = -100;
+    public int[] packageValues;
+   
 
     private void Awake()
     {

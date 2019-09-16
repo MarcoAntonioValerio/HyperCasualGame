@@ -23,9 +23,12 @@ public class scp_Player : MonoBehaviour
         Destroy(collision.gameObject);
         switch (fallingObjects.packageRandomness)
         {
-            case 0: gameManager.score += gameManager.packageAValue; break;
-            case 1: gameManager.score += gameManager.packageBValue; break;
-            case 2: gameManager.score += gameManager.packageCValue; break;
+            case 0: gameManager.score += gameManager.packageValues[0]; break;
+            case 1: gameManager.score += gameManager.packageValues[1]; break;
+            case 2: gameManager.score += gameManager.packageValues[2]; break;
+            case 3: gameManager.score += gameManager.packageValues[3]; break;
+            case 4: gameManager.score += gameManager.packageValues[4]; break;
+            case 5: gameManager.score += gameManager.packageValues[5]; break;
         }
     }
 

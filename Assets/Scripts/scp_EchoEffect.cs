@@ -15,6 +15,12 @@ public class scp_EchoEffect : MonoBehaviour
     void Start()
     {
         Setup();
+    }    
+
+    // Update is called once per frame
+    void Update()
+    {
+        GhostTrail();
     }
 
     private void Setup()
@@ -22,8 +28,7 @@ public class scp_EchoEffect : MonoBehaviour
         dash = GetComponent<scp_Dash>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GhostTrail()
     {
         if (dash.direction != 0)
         {

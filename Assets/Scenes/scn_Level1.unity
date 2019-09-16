@@ -333,11 +333,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241764317}
-  m_Text: 'TODO
-
-    -Add dynamic difficulty
-
-    -Polish/Game Feel'
+  m_Text: "TODO\n-Add dynamic difficulty\n-Polish/Game Feel\n-First press triggers
+    animations \nbut not movement."
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -10289,9 +10286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  packageAValue: 123
-  packageBValue: 320
-  packageCValue: -100
+  packageValues: 7b000000c2ffffff
 --- !u!1 &1185788860
 GameObject:
   m_ObjectHideFlags: 0
@@ -10548,9 +10543,8 @@ MonoBehaviour:
   - {fileID: 226456260}
   - {fileID: 1907024552}
   packages:
-  - {fileID: 7085442510367582748, guid: 63e2237b363ee244f8ed3384a6a0b69f, type: 3}
-  - {fileID: 4952123819592492996, guid: 56536f445ca2d8346b6fde634b7e32e3, type: 3}
-  - {fileID: 2693112842411705073, guid: ba9dbfe4049268b4d93fbfabe203ac09, type: 3}
+  - {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2, type: 3}
+  - {fileID: 8996789848112930031, guid: b7f15cca2ffc11b44b41e31f49c2485a, type: 3}
   posArray:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
@@ -10732,7 +10726,7 @@ RectTransform:
   - {fileID: 1382200832}
   - {fileID: 194769621}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10746,21 +10740,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2611918739637938461, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8896429
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611918739637938461, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.889643
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611918739637938461, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.889643
-      objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_Name
@@ -10775,6 +10754,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611918739637938461, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8896429
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611918739637938461, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.889643
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611918739637938461, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.889643
       objectReference: {fileID: 0}
     - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
@@ -10799,7 +10793,7 @@ PrefabInstance:
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.65
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
@@ -10834,7 +10828,7 @@ PrefabInstance:
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
