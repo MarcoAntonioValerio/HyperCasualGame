@@ -494,7 +494,7 @@ ParticleSystem:
   m_GameObject: {fileID: 254797608}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 0.01
+  simulationSpeed: 0.04
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -1424,7 +1424,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1435,21 +1435,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          value: 0
+          inSlope: -1.7393821
+          outSlope: -1.7393821
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.41176468
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -5247,7 +5247,7 @@ ParticleSystem:
   m_GameObject: {fileID: 479633830}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 0.01
+  simulationSpeed: 0.04
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -6177,7 +6177,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -6188,21 +6188,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          value: 0
+          inSlope: -1.6027654
+          outSlope: -1.6027654
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.63235295
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -10843,17 +10843,17 @@ PrefabInstance:
     - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.19407003
+      value: 0.41037738
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.990566
+      value: 0.8195582
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441722, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
