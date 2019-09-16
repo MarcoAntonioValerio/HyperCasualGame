@@ -23,6 +23,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private GameObject packageClone;
     public int packageRandomness;
     public int packageLocation;
+    public bool hasBeenDeployed = false;
 
     //TODO
     /* Find a way to spawn the packages at
@@ -35,19 +36,11 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        TestSpace();
+    {        
         Countdown();
     }
 
-    private void TestSpace()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            DeployPackage();
-            
-        }
-    }
+    
 
 
     private void InitialisationParameters()
@@ -84,21 +77,24 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         {
             DeployPackage();
             timer = 3f;
+            
         }
         
     }
 
     private void DeployPackage()
     {
-        packageRandomness   = Random.Range(0, 3);
+        packageRandomness   = Random.Range(0,2);
         packageLocation     = Random.Range(0, 5);
 
         switch (packageRandomness)
         {
             case 0: Instantiate(packages[0], posArray[packageLocation], Quaternion.identity); break;
             case 1: Instantiate(packages[1], posArray[packageLocation], Quaternion.identity); break;
-            case 2: Instantiate(packages[2], posArray[packageLocation], Quaternion.identity); break;
+            
         }
+
+        hasBeenDeployed = true;
     }
 
     

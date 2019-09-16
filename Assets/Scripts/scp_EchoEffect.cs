@@ -8,29 +8,45 @@ public class scp_EchoEffect : MonoBehaviour
     public float startTimeBtwSpawns;
 
     public GameObject echo;
-    private scp_Dash dash;
+    public scp_Dash dash;
     [SerializeField] float instanceLife = 2f;
+    public scp_FallingObjectsLogic fallen;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Setup();
-    }    
+       
 
     // Update is called once per frame
     void Update()
     {
-        GhostTrail();
+        if (dash != null) { GhostTrailPlayer(); }
+        if (fallen != null) { GhostTrailPickups(); }
+
     }
 
-    private void Setup()
-    {
-        dash = GetComponent<scp_Dash>();
+    
+
+    private void GhostTrailPlayer()
+    {        
+        
+       if (dash.direction != 0)
+       {
+              if (timeBtwSpawns <= 0)
+              {
+                    GameObject instance = (GameObject)Instantiate(echo, transform.position, Quaternion.identity);
+                    Destroy(instance, instanceLife);
+                    timeBtwSpawns = startTimeBtwSpawns;
+              }
+              else
+              {
+                    timeBtwSpawns -= Time.deltaTime;
+              }
+       }
+        
+        
     }
 
-    private void GhostTrail()
+    private void GhostTrailPickups()
     {
-        if (dash.direction != 0)
+        if (fallen.hasBeenDeployed != false)
         {
             if (timeBtwSpawns <= 0)
             {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5885693002381167875}
   - component: {fileID: 2747735349709961576}
   - component: {fileID: 270678223895871092}
+  - component: {fileID: 8347589289544384761}
   m_Layer: 0
   m_Name: BadPickup
   m_TagString: Untagged
@@ -170,3 +171,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 2
+--- !u!114 &8347589289544384761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996789848112930031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1595814157363ff44bb4ffa0740a1afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwSpawns: 0.1
+  echo: {fileID: 261569540294910536, guid: 5451fb74ea4f6314f9552a0600333539, type: 3}
+  dash: {fileID: 0}
+  instanceLife: 0.2
+  fallen: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135, type: 3}
