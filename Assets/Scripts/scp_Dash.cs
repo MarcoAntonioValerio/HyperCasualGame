@@ -9,19 +9,44 @@ public class scp_Dash : MonoBehaviour
     private float dashTime;
     public float startDashTime;
     private int direction;
+
+    //Animation Variables
+    private Animator anim;
+
     void Start()
+    {
+        SetupVariables();
+    }
+
+    private void SetupVariables()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Dash();
+    }
+
+    private void Dash()
+    {
         if (direction == 0)
         {
-            if      (Input.GetAxisRaw("Horizontal")== 1) { direction = 2; }
-            else if (Input.GetAxisRaw("Horizontal")==  -1) { direction = 1; }
+            anim.SetBool("isDashing", false);
+
+            if (Input.GetAxisRaw("Horizontal") == 1)
+            {
+                direction = 2;
+                anim.SetBool("isDashing", true);
+            }
+            else if (Input.GetAxisRaw("Horizontal") == -1)
+            {
+                direction = 1;
+                anim.SetBool("isDashing", true);
+            }
         }
         else
         {
