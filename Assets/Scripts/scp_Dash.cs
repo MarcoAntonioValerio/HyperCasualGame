@@ -16,25 +16,22 @@ public class scp_Dash : MonoBehaviour
     //Animation Variables
     private Animator anim;
 
-    void Start()
+    void Awake()
     {
         SetupVariables();
     }
 
-    private void SetupVariables()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
-        anim = GetComponent<Animator>();
-        
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Dash();
     }
+    private void SetupVariables()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        anim = GetComponent<Animator>();        
+    }    
+    
 
     private void Dash()
     {
@@ -44,15 +41,17 @@ public class scp_Dash : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                direction = 2;
+                rb.velocity = Vector2.right * dashSpeed;
+                direction = 2;               
                 anim.SetBool("isDashing", true);
                 
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                direction = 1;
-                anim.SetBool("isDashing", true);
-                
+                rb.velocity = Vector2.left * dashSpeed;
+                direction = 1;                
+                anim.SetBool("isDashing", true);      
+
             }
         }
         else
@@ -66,9 +65,6 @@ public class scp_Dash : MonoBehaviour
             else
             {
                 dashTime -= Time.deltaTime;
-
-                if (direction == 1) { rb.velocity = Vector2.left * dashSpeed; }
-                else if (direction == 2) { rb.velocity = Vector2.right * dashSpeed; }
             }
         }
     }
