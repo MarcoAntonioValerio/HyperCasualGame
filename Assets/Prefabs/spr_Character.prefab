@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7823425273942441726}
   - component: {fileID: -2342553309369537330}
   - component: {fileID: 8843590717496975853}
-  - component: {fileID: 7837262457415885295}
+  - component: {fileID: 3914752866962700246}
   m_Layer: 0
   m_Name: spr_Character
   m_TagString: Untagged
@@ -194,7 +194,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 0
   startDashTime: 0
---- !u!114 &7837262457415885295
+  sr: {fileID: 0}
+  dashParticlesLeft: {fileID: 0}
+  dashParticlesRight: {fileID: 0}
+--- !u!114 &3914752866962700246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,11 +206,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7823425273942441723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece27f0c4286c4f4f86acd2be8808976, type: 3}
+  m_Script: {fileID: 11500000, guid: 630d8dfa420811f4ca10e53d8771e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 40
-  rightVelocity: 2
-  leftVelocity: -2
-  dashSpeed: 0
-  startDashTime: 0
