@@ -7,6 +7,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     //Referencing Gameobjects
     public GameObject[] spawners;
     public GameObject[] packages;
+    private scp_GameManager gameMan;
     
     //Spawn Positions
     public  Vector2[] posArray;
@@ -38,6 +39,8 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     void Update()
     {        
         Countdown();
+        AdaptiveDifficulty();
+        countdown = Mathf.Clamp(countdown, 0, 10);
     }
 
     
@@ -56,7 +59,11 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         posArray[1] = posB;
         posArray[2] = posC;
         posArray[3] = posD;
-        posArray[4] = posE; 
+        posArray[4] = posE;
+
+        gameMan = FindObjectOfType<scp_GameManager>();
+
+        countdown = Mathf.Clamp(timer, 0, 10);
     }
 
     private void Countdown()
@@ -84,18 +91,127 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
     private void DeployPackage()
     {
-        packageRandomness   = Random.Range(0,2);
+        
         packageLocation     = Random.Range(0, 5);
+        packageRandomness   = Random.Range(0, 2);
 
         switch (packageRandomness)
         {
-            case 0: Instantiate(packages[0], posArray[packageLocation], Quaternion.identity); break;
-            case 1: Instantiate(packages[1], posArray[packageLocation], Quaternion.identity); break;
-            
+            case 0: Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
+                break;
+            case 1: Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
+                break;
         }
+
+        /*if (packageRandomness == 1)
+        {
+            Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
+        }
+        else if (packageRandomness == 2)
+        {
+            Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
+        }*/
+
+        
 
         hasBeenDeployed = true;
     }
 
-    
+    private void AdaptiveDifficulty()
+    {
+        if (gameMan.successRate < 10)
+        {
+            DeployCaseZero();
+        }
+        if (gameMan.successRate >= 17)
+        {
+            DeployCaseOne();
+        }
+        if (gameMan.successRate >= 25)
+        {
+            DeployCaseTwo();
+        }
+        if (gameMan.successRate >= 32)
+        {
+            DeployCaseThree();
+        }
+        if (gameMan.successRate >= 40)
+        {
+            DeployCaseFour();
+        }
+
+
+    }
+
+    private void DeployCaseZero()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                DeployPackage();
+                timer = 3f;
+            }
+        }
+    }
+    private void DeployCaseOne()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                DeployPackage();
+                timer = 2f;
+            }
+        }
+    }
+    private void DeployCaseTwo()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                DeployPackage();
+                timer = 1f;
+            }
+        }
+    }
+    private void DeployCaseThree()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                DeployPackage();
+                timer = 0.5f;
+            }
+        }
+    }
+    private void DeployCaseFour()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                DeployPackage();
+                timer = 0.25f;
+            }
+        }
+    }
+
 }
