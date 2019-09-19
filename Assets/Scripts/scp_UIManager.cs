@@ -7,11 +7,11 @@ using TMPro;
 public class scp_UIManager : MonoBehaviour
 {
     //Objects
-    public  Text countdownText;
-    public  Text timerText;
+    public  Text countdownText;    
     private scp_FallingObjectsLogic packages;
     private scp_GameManager gameManager;
     public  TextMeshProUGUI scoreTextBox;
+    public  TextMeshProUGUI timerTextBox;
     //Variables
     public string testString = "Test String";
 
@@ -29,19 +29,16 @@ public class scp_UIManager : MonoBehaviour
     
     void Update()
     {
-        ScoreUpdater();
+        ScoreAndTimerUpdater();
     }
 
-    public void ScoreUpdater()
+    public void ScoreAndTimerUpdater()
     {
         scoreTextBox.text   = "Score:" + gameManager.score.ToString();
+        timerTextBox.text = gameManager.timeLeft.ToString("f0");
     }
 
-    private void TestingStuff()
-    {
-        countdownText.text  = packages.countdown.ToString();
-        timerText.text      = packages.timer.ToString();
-    }
+   
 
     private void Initialisation()
     {
@@ -49,8 +46,6 @@ public class scp_UIManager : MonoBehaviour
         gameManager = FindObjectOfType<scp_GameManager>();
 
         scoreTextBox        = GameObject.Find("txtPro_Score").GetComponent<TextMeshProUGUI>();
-        scoreTextBox.text   = "Score:" + gameManager.score.ToString(); 
-
-        
+        scoreTextBox.text   = "Score:" + gameManager.score.ToString();         
     }
 }
