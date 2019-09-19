@@ -5,21 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class scp_Scenemanager : MonoBehaviour
 {
-    private scp_GameManager gameMan;
+    public scp_GameManager gameMan;
     // Start is called before the first frame update
     void Start()
-    {
-        SetupSingleton();
-        SetupValues();
+    {        
+        FindGameManager();
     }
 
     private void Update()
     {
         LoadTheFirstLevel();
         GameOverWhenTimeRunsOut();
+        
     }
 
-    private void SetupValues()
+    private void FindGameManager()
     {
         gameMan = FindObjectOfType<scp_GameManager>();
     }
@@ -37,21 +37,13 @@ public class scp_Scenemanager : MonoBehaviour
 
     private void GameOverWhenTimeRunsOut()
     {
-        if (gameMan.timeLeft <= 0)
+        if (gameMan != null)
         {
-            SceneManager.LoadScene("scn_GameOver");
-        }
+            if (gameMan.timeLeft <= 0)
+            {
+                SceneManager.LoadScene("scn_GameOver");
+            }
+        }        
     }
-
-    private void SetupSingleton()
-    {
-        if (FindObjectsOfType(GetType()).Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    
 }

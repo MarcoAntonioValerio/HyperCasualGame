@@ -10,7 +10,7 @@ public class scp_GameManager : MonoBehaviour
     public float timeLeft = 60f;
     public int[] packageValues;
     public int successRate;
-    private scp_Scenemanager sceneManager;
+    
 
     private void Awake()
     {
