@@ -7,6 +7,7 @@ public class scp_Player : MonoBehaviour
     //Objects
     private scp_GameManager gameManager;
     private scp_FallingObjectsLogic fallingObjects;
+    private scp_RipplePostEffect ripple;
     //Variables
     
 
@@ -25,6 +26,7 @@ public class scp_Player : MonoBehaviour
         {
             case true: gameManager.score += gameManager.packageValues[0];
                     gameManager.successRate++;
+                    ripple.RippleTriggerEffect();
                     break;
             case false: gameManager.score += gameManager.packageValues[1];
                     gameManager.successRate--;
@@ -38,5 +40,6 @@ public class scp_Player : MonoBehaviour
     {
         gameManager     = FindObjectOfType<scp_GameManager>();
         fallingObjects  = FindObjectOfType<scp_FallingObjectsLogic>();
+        ripple          = FindObjectOfType<scp_RipplePostEffect>();
     }
 }
