@@ -34,7 +34,7 @@ public class scp_UIManager : MonoBehaviour
 
     public void ScoreAndTimerUpdater()
     {
-        scoreTextBox.text   = "Score:" + gameManager.score.ToString();
+        scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
         timerTextBox.text = gameManager.timeLeft.ToString("f0");
     }
 
@@ -46,7 +46,7 @@ public class scp_UIManager : MonoBehaviour
         gameManager = FindObjectOfType<scp_GameManager>();
 
         scoreTextBox        = GameObject.Find("txtPro_Score").GetComponent<TextMeshProUGUI>();
-        scoreTextBox.text   = "Score:" + gameManager.score.ToString();
+        scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
 
         timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
         timerTextBox.text = gameManager.timeLeft.ToString("f0");

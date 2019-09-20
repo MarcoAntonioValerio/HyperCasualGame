@@ -20,6 +20,7 @@ public class scp_GameManager : MonoBehaviour
     void Start()
     {
         SetupSingleton();
+        
     }
 
     // Update is called once per frame

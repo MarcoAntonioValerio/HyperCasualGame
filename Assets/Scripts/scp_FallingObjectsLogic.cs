@@ -25,6 +25,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     public int packageRandomness;
     public int packageLocation;
     public bool hasBeenDeployed = false;
+    public bool amIaGoodPackage = false;
 
     //TODO
     /* Find a way to spawn the packages at
@@ -62,6 +63,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         posArray[4] = posE;
 
         gameMan = FindObjectOfType<scp_GameManager>();
+        
 
         countdown = Mathf.Clamp(timer, 0, 10);
     }
@@ -78,7 +80,12 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
     private void DeployOrder()
     {
+        packageLocation = Random.Range(0, 5);
+        packageRandomness = Random.Range(0, 2);
+
         timer -= Time.deltaTime;
+
+        
 
         if (timer <= 0)
         {
@@ -90,52 +97,43 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     }
 
     private void DeployPackage()
-    {
-        
-        packageLocation     = Random.Range(0, 5);
-        packageRandomness   = Random.Range(0, 2);
-
+    {    
+       
         switch (packageRandomness)
         {
-            case 0: Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
+            case 0:
+                Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
                 break;
             case 1: Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = false;
                 break;
         }
-
-        /*if (packageRandomness == 1)
-        {
-            Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
-        }
-        else if (packageRandomness == 2)
-        {
-            Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
-        }*/
-
-        
 
         hasBeenDeployed = true;
     }
 
+    
+
     private void AdaptiveDifficulty()
     {
-        if (gameMan.successRate < 10)
+        if (gameMan.successRate < 3)
         {
             DeployCaseZero();
         }
-        if (gameMan.successRate >= 17)
+        if (gameMan.successRate >= 6)
         {
             DeployCaseOne();
         }
-        if (gameMan.successRate >= 25)
+        if (gameMan.successRate >= 9)
         {
             DeployCaseTwo();
         }
-        if (gameMan.successRate >= 32)
+        if (gameMan.successRate >= 12)
         {
             DeployCaseThree();
         }
-        if (gameMan.successRate >= 40)
+        if (gameMan.successRate >= 15)
         {
             DeployCaseFour();
         }

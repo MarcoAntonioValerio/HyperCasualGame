@@ -21,12 +21,12 @@ public class scp_Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
-        switch (fallingObjects.packageRandomness)
+        switch (fallingObjects.amIaGoodPackage)
         {
-            case 0: gameManager.score += gameManager.packageValues[0];
+            case true: gameManager.score += gameManager.packageValues[0];
                     gameManager.successRate++;
                     break;
-            case 1: gameManager.score += gameManager.packageValues[1];
+            case false: gameManager.score += gameManager.packageValues[1];
                     gameManager.successRate--;
                     break;
                 
