@@ -28,7 +28,7 @@ public class scp_RipplePostEffect : MonoBehaviour
         if (cam != null)
         {
             if (player.greenCollected)
-            {
+            {                
                 this.Amount = this.MaxAmount;
                 this.RippleMaterial.SetFloat("_CenterX", pos.x);
                 this.RippleMaterial.SetFloat("_CenterY", pos.y);
@@ -36,9 +36,18 @@ public class scp_RipplePostEffect : MonoBehaviour
                 player.greenCollected = false;
             }
             this.RippleMaterial.SetFloat("_Amount", this.Amount);
-            this.Amount *= this.Friction;
+            
+            Debug.Log(this.Amount);
+            if (this.Amount > 1f)
+            {
+                this.Amount *= this.Friction;
+            }
+            else
+            {
+                this.Amount = 0f;
+            }
             pos = cam.WorldToScreenPoint(RippleCenter.transform.position);
-            Debug.Log(pos);
+            
 
             
         }    
