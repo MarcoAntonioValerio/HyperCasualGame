@@ -10,6 +10,8 @@ public class scp_RipplePostEffect : MonoBehaviour
     public Vector3 pos;
     public GameObject RippleCenter;
     private Camera cam;
+    private scp_Player player;
+
 
     [Range(0, 1)]
     public float Friction = .9f;
@@ -19,19 +21,27 @@ public class scp_RipplePostEffect : MonoBehaviour
     private void Start()
     {
         cam = this.GetComponent<Camera>();
+        player = FindObjectOfType<scp_Player>();
     }
     void Update()
     {
-
         if (cam != null)
         {
+            if (player.greenCollected)
+            {
+                this.Amount = this.MaxAmount;
+                this.RippleMaterial.SetFloat("_CenterX", pos.x);
+                this.RippleMaterial.SetFloat("_CenterY", pos.y);
+                Debug.Log("Effect Firing!");
+                player.greenCollected = false;
+            }
             this.RippleMaterial.SetFloat("_Amount", this.Amount);
             this.Amount *= this.Friction;
             pos = cam.WorldToScreenPoint(RippleCenter.transform.position);
             Debug.Log(pos);
-        }
-        
-        
+
+            
+        }    
         
     }
 
@@ -42,10 +52,7 @@ public class scp_RipplePostEffect : MonoBehaviour
 
     public void RippleTriggerEffect()
     {        
-        this.Amount = this.MaxAmount;        
-        this.RippleMaterial.SetFloat("_CenterX", pos.x);
-        this.RippleMaterial.SetFloat("_CenterY", pos.y);
-        Debug.Log("Effect Firing!");
+        
     }
 
 

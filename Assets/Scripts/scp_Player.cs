@@ -9,7 +9,7 @@ public class scp_Player : MonoBehaviour
     private scp_FallingObjectsLogic fallingObjects;
     private scp_RipplePostEffect ripple;
     //Variables
-    
+    public bool greenCollected = false;
 
 
 
@@ -26,7 +26,7 @@ public class scp_Player : MonoBehaviour
         {
             case true: gameManager.score += gameManager.packageValues[0];
                     gameManager.successRate++;
-                    ripple.RippleTriggerEffect();
+                    greenCollected = true;
                     break;
             case false: gameManager.score += gameManager.packageValues[1];
                     gameManager.successRate--;
