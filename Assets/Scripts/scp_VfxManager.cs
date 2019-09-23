@@ -17,6 +17,12 @@ public class scp_VfxManager : MonoBehaviour
     public Transform subtractPointsPromptPosition;
     public Transform addPointsPromptPosition;
 
+    
+
+    
+
+    
+
 
 
     public void CamShake()
