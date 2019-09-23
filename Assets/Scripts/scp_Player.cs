@@ -7,7 +7,8 @@ public class scp_Player : MonoBehaviour
     //Objects
     private scp_GameManager gameManager;
     private scp_FallingObjectsLogic fallingObjects;
-    private scp_RipplePostEffect ripple;
+    private scp_VfxManager vfx;
+    
     //Variables
     public bool greenCollected = false;
 
@@ -22,6 +23,7 @@ public class scp_Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
+        vfx.CamShake();
         switch (fallingObjects.amIaGoodPackage)
         {
             case true: gameManager.score += gameManager.packageValues[0];
@@ -40,6 +42,7 @@ public class scp_Player : MonoBehaviour
     {
         gameManager     = FindObjectOfType<scp_GameManager>();
         fallingObjects  = FindObjectOfType<scp_FallingObjectsLogic>();
-        ripple          = FindObjectOfType<scp_RipplePostEffect>();
+        vfx             = FindObjectOfType<scp_VfxManager>();
+        
     }
 }

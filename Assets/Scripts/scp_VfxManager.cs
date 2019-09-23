@@ -5,24 +5,13 @@ using UnityEngine;
 public class scp_VfxManager : MonoBehaviour
 {
     
-    public ParticleSystem[] anticipationParticles;
+    
+    public Animator camAnim;
 
-    private scp_FallingObjectsLogic packages;
-
-    // Start is called before the first frame update
-    void Start()
+    public void CamShake()
     {
-        packages = FindObjectOfType<scp_FallingObjectsLogic>(); 
+        camAnim.SetTrigger("shake");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void EmitRightParticles()
-    {
-
-    }
+    
 }
