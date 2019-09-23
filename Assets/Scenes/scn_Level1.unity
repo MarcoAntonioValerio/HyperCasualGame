@@ -149,12 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1d5ba75537de249b6640f657aeb10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anticipationParticles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  camAnim: {fileID: 519420033}
+  goodPickup: {fileID: 4413541834135396002, guid: 43fc04130a956be4380db946a25b60f5,
+    type: 3}
+  particleSpawnerPos: {fileID: 0}
 --- !u!4 &77306509
 Transform:
   m_ObjectHideFlags: 0
@@ -433,6 +431,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -460,11 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d856a7660d1b6cf47a0bc2f0b3b7f18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RippleMaterial: {fileID: 2100000, guid: 25c854d7287034349a75d0b771cecff7, type: 2}
-  MaxAmount: 30
-  pos: {x: 0, y: 0, z: 0}
-  RippleCenter: {fileID: 1444955504}
-  Friction: 0.8
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -522,6 +516,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &519420033
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d8d982f3c51f934c98d8ca8af8ec743, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &691154087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7823425273942441723, guid: fcc8838312df518479b1bc21e6db18a6,
@@ -1025,12 +1038,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382200831}
   m_CullTransparentMesh: 0
---- !u!1 &1444955504 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 651593284569545024, guid: fcc8838312df518479b1bc21e6db18a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 7823425275215585385}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1996482141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,6 +1535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: dashParticlesRight
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 651593284569545024, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Name
+      value: ParticleCenterCenter
       objectReference: {fileID: 0}
     - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}

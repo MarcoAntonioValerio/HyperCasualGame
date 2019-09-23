@@ -28,10 +28,12 @@ public class scp_Player : MonoBehaviour
         {
             case true: gameManager.score += gameManager.packageValues[0];
                     gameManager.successRate++;
+                    vfx.GoodPickupParticles();
                     greenCollected = true;
                     break;
             case false: gameManager.score += gameManager.packageValues[1];
                     gameManager.successRate--;
+                    vfx.BadPickupParticles();
                     break;
                 
         }      
