@@ -30,12 +30,21 @@ public class scp_UIManager : MonoBehaviour
     void Update()
     {
         ScoreAndTimerUpdater();
+        ChangeTimerColor();
     }
 
     public void ScoreAndTimerUpdater()
     {
         scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
         timerTextBox.text = gameManager.timeLeft.ToString("f0");
+    }
+
+    private void ChangeTimerColor()
+    {
+        if (gameManager.timeLeft <= 15)
+        {
+            timerTextBox.color = new Color(1,0,0);
+        }
     }
 
    

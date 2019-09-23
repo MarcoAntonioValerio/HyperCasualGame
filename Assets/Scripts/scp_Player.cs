@@ -24,19 +24,22 @@ public class scp_Player : MonoBehaviour
     {
         Destroy(collision.gameObject);
         vfx.CamShake();
-        switch (fallingObjects.amIaGoodPackage)
+        if (collision.gameObject.tag == "GoodBox")
         {
-            case true: gameManager.score += gameManager.packageValues[0];
-                    gameManager.successRate++;
-                    vfx.GoodPickupParticles();
-                    greenCollected = true;
-                    break;
-            case false: gameManager.score += gameManager.packageValues[1];
-                    gameManager.successRate--;
-                    vfx.BadPickupParticles();
-                    break;
-                
-        }      
+            gameManager.score += gameManager.packageValues[0];
+            gameManager.successRate++;
+            vfx.GoodPickupParticles();
+            vfx.addPointsPromptMethod();
+            greenCollected = true;
+        }
+        else if (collision.gameObject.tag == "BadBox")
+        {
+            gameManager.score += gameManager.packageValues[1];
+            gameManager.successRate--;
+            vfx.BadPickupParticles();
+            vfx.subtractPointsPromptMethod();
+        }
+         
         
     }
 

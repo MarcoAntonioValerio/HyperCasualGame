@@ -81,7 +81,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private void DeployOrder()
     {
         packageLocation = Random.Range(0, 5);
-        packageRandomness = Random.Range(0, 2);
+        packageRandomness = Random.Range(0, 5);
 
         timer -= Time.deltaTime;
 
@@ -108,6 +108,18 @@ public class scp_FallingObjectsLogic : MonoBehaviour
             case 1: Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
                 amIaGoodPackage = false;
                 break;
+            case 2:
+                Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = false;
+                break;
+            case 3:
+                Instantiate(packages[3], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 4:
+                Instantiate(packages[4], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;            
         }
 
         hasBeenDeployed = true;
