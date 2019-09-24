@@ -8,8 +8,8 @@ public class scp_VfxManager : MonoBehaviour
     
     public Animator camAnim;
 
-    public GameObject goodPickup;
-    public GameObject badPickup;
+    public GameObject goodPickupParticles;
+    public GameObject badPickupParticles;
     public GameObject subtractPointsPrompt;
     public GameObject addPointsPrompt;
 
@@ -32,12 +32,12 @@ public class scp_VfxManager : MonoBehaviour
 
     public void GoodPickupParticles()
     {
-        var goodExplosion = Instantiate(goodPickup, particleSpawnerPos.position, Quaternion.identity) as GameObject;
+        var goodExplosion = Instantiate(goodPickupParticles, particleSpawnerPos.position, Quaternion.identity) as GameObject;
         Destroy(goodExplosion, 0.8f);
     }
     public void BadPickupParticles()
     {
-        var badExplosion = Instantiate(badPickup, particleSpawnerPos.position, Quaternion.identity) as GameObject;
+        var badExplosion = Instantiate(badPickupParticles, particleSpawnerPos.position, Quaternion.identity) as GameObject;
         Destroy(badExplosion, 0.8f);
     }
     public void addPointsPromptMethod()
@@ -49,7 +49,7 @@ public class scp_VfxManager : MonoBehaviour
     }
     public void subtractPointsPromptMethod()
     {        
-        var subtractPoints = Instantiate(subtractPointsPrompt, subtractPointsPromptPosition.position, Quaternion.identity) as GameObject;
+        var subtractPoints = Instantiate(this.subtractPointsPrompt, subtractPointsPromptPosition.position, Quaternion.identity) as GameObject;
         subtractPoints.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         subtractPoints.transform.position = subtractPointsPromptPosition.position;
         Destroy(subtractPoints, 0.8f);

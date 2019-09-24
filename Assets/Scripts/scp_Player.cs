@@ -31,12 +31,19 @@ public class scp_Player : MonoBehaviour
             gameManager.successRate++;            
             vfx.GoodPickupParticles();
             vfx.addPointsPromptMethod();
-            ripple.RippleEffect();
+            //ripple.RippleSetup();
             greenCollected = true;
         }
         else if (collision.gameObject.tag == "BadBox")
         {
-            gameManager.score += gameManager.packageValues[1];
+            if (gameManager.score >= 543)
+            {
+                gameManager.score += gameManager.packageValues[1];
+            }
+            else
+            {
+                gameManager.score = 0;
+            }
             gameManager.successRate--;
             vfx.CamShake();
             vfx.BadPickupParticles();

@@ -150,9 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnim: {fileID: 519420033}
-  goodPickup: {fileID: 4413541834135396060, guid: 43fc04130a956be4380db946a25b60f5,
+  goodPickupParticles: {fileID: 4413541834135396060, guid: 43fc04130a956be4380db946a25b60f5,
     type: 3}
-  badPickup: {fileID: 3057727224863282854, guid: c23fb37b84bafc54fa367c0623319765,
+  badPickupParticles: {fileID: 3057727224863282854, guid: c23fb37b84bafc54fa367c0623319765,
     type: 3}
   subtractPointsPrompt: {fileID: 5021027811521718671, guid: 3ac2798c00cfd4c449d8b09d57692a8a,
     type: 3}
@@ -438,8 +438,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -464,9 +464,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d856a7660d1b6cf47a0bc2f0b3b7f18a, type: 3}
+  m_Script: {fileID: 11500000, guid: 469ba09d521c31844864ecf4dde22b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RippleMaterial: {fileID: 2100000, guid: 392dee8c9debe914b92ba536ecb1912a, type: 2}
+  MaxAmount: 50
+  Friction: 0.9
+  ripplePos: {fileID: 1444955505}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -631,8 +635,8 @@ MonoBehaviour:
   startTimeBtwSpawns: 0
   echo: {fileID: 8590924988553098758, guid: eeb34bdb08895e24daef2e3adb64adc5, type: 3}
   dash: {fileID: 691154090}
-  instanceLife: 0.3
-  fallen: {fileID: 0}
+  instanceLife: 2
+  fallen: {fileID: 1935659311}
 --- !u!1 &916357126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1122,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7823425275215585385}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1935659311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+    type: 3}
+  m_PrefabInstance: {fileID: 6748926941505527754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8b69daee1415646a65b4bddbc6da51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1996482141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1645,31 +1661,6 @@ PrefabInstance:
       propertyPath: dashParticlesRight
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 651593284569545024, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: m_Name
-      value: PickupParticleSpawning
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: rightVelocity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: leftVelocity
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: startDashTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
-        type: 3}
-      propertyPath: dashSpeed
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441725, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1739,6 +1730,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 12.54667
+      objectReference: {fileID: 0}
+    - target: {fileID: 651593284569545024, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: m_Name
+      value: PickupParticleSpawning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: rightVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: leftVelocity
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: startDashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837262457415885295, guid: fcc8838312df518479b1bc21e6db18a6,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7823425273942441726, guid: fcc8838312df518479b1bc21e6db18a6,
         type: 3}

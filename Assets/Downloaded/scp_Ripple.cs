@@ -13,33 +13,28 @@ public class scp_Ripple : MonoBehaviour
 
     [Range(0, 1)]
     public float Friction = .9f;
-
     private float Amount = 0f;
+
+    public Transform ripplePos;
 
 
     private void Start()
     {
         vfx = FindObjectOfType<scp_VfxManager>();
     }
-
-    //To sort Out
-    /*
-    public void RippleEffect()
+    void Update()
     {
-
-        RippleSetup();
+        if (Input.GetMouseButton(0))
+        {
+            this.Amount = this.MaxAmount;
+            Vector3 pos = ripplePos.position;
+            this.RippleMaterial.SetFloat("_CenterX", pos.x);
+            this.RippleMaterial.SetFloat("_CenterY", pos.y);
+        }
 
         this.RippleMaterial.SetFloat("_Amount", this.Amount);
         this.Amount *= this.Friction;
     }
-
-    private void RippleSetup()
-    {
-        this.Amount = this.MaxAmount;
-        Vector3 pos = vfx.particleSpawnerPos.position;
-        this.RippleMaterial.SetFloat("_CenterX", pos.x);
-        this.RippleMaterial.SetFloat("_CenterY", pos.y);
-    }*/
 
     void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
