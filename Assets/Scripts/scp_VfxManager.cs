@@ -1,35 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scp_VfxManager : MonoBehaviour
 {
     
-    
+    [Header("ScreenShake")]
     public Animator camAnim;
-
+    [Header("Particles")]
     public GameObject goodPickupParticles;
     public GameObject badPickupParticles;
-    public GameObject subtractPointsPrompt;
-    public GameObject addPointsPrompt;
-
     public Transform particleSpawnerPos;
+    [Header("PlayerFeedback")]    
+    public GameObject subtractPointsPrompt;
+    public GameObject addPointsPrompt;    
     public Transform subtractPointsPromptPosition;
     public Transform addPointsPromptPosition;
-
     
-
-    
-
-    
-
-
 
     public void CamShake()
     {
         camAnim.SetTrigger("shake");
     }
-
     public void GoodPickupParticles()
     {
         var goodExplosion = Instantiate(goodPickupParticles, particleSpawnerPos.position, Quaternion.identity) as GameObject;
@@ -54,6 +47,6 @@ public class scp_VfxManager : MonoBehaviour
         subtractPoints.transform.position = subtractPointsPromptPosition.position;
         Destroy(subtractPoints, 0.8f);
     }
-
+    
 
 }

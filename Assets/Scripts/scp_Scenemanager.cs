@@ -24,7 +24,7 @@ public class scp_Scenemanager : MonoBehaviour
         gameMan = FindObjectOfType<scp_GameManager>();
     }
 
-    private void LoadTheFirstLevel()
+    public void LoadTheFirstLevel()
     {
         if (SceneManager.GetActiveScene().name == "scn_MainMenu")
         {
@@ -35,7 +35,7 @@ public class scp_Scenemanager : MonoBehaviour
         }
     }
 
-    private void GameOverWhenTimeRunsOut()
+    public void GameOverWhenTimeRunsOut()
     {
         if (gameMan != null)
         {
