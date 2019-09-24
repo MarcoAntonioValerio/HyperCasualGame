@@ -468,7 +468,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RippleMaterial: {fileID: 2100000, guid: 392dee8c9debe914b92ba536ecb1912a, type: 2}
-  MaxAmount: 50
+  player: {fileID: 0}
+  MaxAmount: 25
   Friction: 0.9
   ripplePos: {fileID: 1444955505}
 --- !u!20 &519420031
@@ -1533,6 +1534,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: man_Spawners
       objectReference: {fileID: 0}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[2]
+      value: 
+      objectReference: {fileID: 8996789848112930031, guid: b7f15cca2ffc11b44b41e31f49c2485a,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[3]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[4]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[5]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
     - target: {fileID: 6748926940924965606, guid: e8134171de3afbe43a802b2688cfd135,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1588,35 +1618,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
-        type: 3}
-      propertyPath: packages.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
-        type: 3}
-      propertyPath: packages.Array.data[2]
-      value: 
-      objectReference: {fileID: 8996789848112930031, guid: b7f15cca2ffc11b44b41e31f49c2485a,
-        type: 3}
-    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
-        type: 3}
-      propertyPath: packages.Array.data[3]
-      value: 
-      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
-        type: 3}
-    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
-        type: 3}
-      propertyPath: packages.Array.data[4]
-      value: 
-      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
-        type: 3}
-    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
-        type: 3}
-      propertyPath: packages.Array.data[5]
-      value: 
-      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8134171de3afbe43a802b2688cfd135, type: 3}
 --- !u!1001 &7823425275215585385

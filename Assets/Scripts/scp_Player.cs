@@ -21,7 +21,7 @@ public class scp_Player : MonoBehaviour
         Initialisation();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
         
@@ -31,7 +31,7 @@ public class scp_Player : MonoBehaviour
             gameManager.successRate++;            
             vfx.GoodPickupParticles();
             vfx.addPointsPromptMethod();
-            //ripple.RippleSetup();
+            ripple.Ripple();
             greenCollected = true;
         }
         else if (collision.gameObject.tag == "BadBox")
