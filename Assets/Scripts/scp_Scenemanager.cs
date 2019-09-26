@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class scp_Scenemanager : MonoBehaviour
 {
     public scp_GameManager gameMan;
+    public Animator transitionAnim;
+    public string sceneName;
     // Start is called before the first frame update
     void Start()
     {        
@@ -14,8 +16,8 @@ public class scp_Scenemanager : MonoBehaviour
 
     private void Update()
     {
-        LoadTheFirstLevel();
-        GameOverWhenTimeRunsOut();
+        StartCoroutine(WaitAndLoadNewScene());
+        StartCoroutine(GameOverWhenTimeRunsOut());
         
     }
 
@@ -24,24 +26,32 @@ public class scp_Scenemanager : MonoBehaviour
         gameMan = FindObjectOfType<scp_GameManager>();
     }
 
-    public void LoadTheFirstLevel()
+    
+
+    IEnumerator WaitAndLoadNewScene()
     {
+        
         if (SceneManager.GetActiveScene().name == "scn_MainMenu")
         {
             if (Input.anyKey)
             {
-                SceneManager.LoadScene("scn_Level1");
+                transitionAnim.SetTrigger("end");
+                yield return new WaitForSeconds(1.5f);
+                SceneManager.LoadScene(sceneName);
             }
         }
+        
     }
 
-    public void GameOverWhenTimeRunsOut()
+    IEnumerator GameOverWhenTimeRunsOut()
     {
         if (gameMan != null)
         {
             if (gameMan.timeLeft <= 0)
             {
-                SceneManager.LoadScene("scn_GameOver");
+                transitionAnim.SetTrigger("end");
+                yield return new WaitForSeconds(1.5f);
+                SceneManager.LoadScene(sceneName);
             }
         }        
     }
