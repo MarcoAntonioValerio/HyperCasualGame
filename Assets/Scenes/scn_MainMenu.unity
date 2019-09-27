@@ -266,6 +266,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1383469316 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1087148956578974230, guid: 3e7b3bc84293ef548a14840de09bb6b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5880927621962312519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1416197468
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeEffectCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7178037351883638596, guid: 3e7b3bc84293ef548a14840de09bb6b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5972278994440797220, guid: 3e7b3bc84293ef548a14840de09bb6b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -992,6 +1003,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020198856816787008, guid: f799e6983a8838349ac68bafede4d8c5,
+        type: 3}
+      propertyPath: transitionAnim
+      value: 
+      objectReference: {fileID: 1383469316}
+    - target: {fileID: 6020198856816787008, guid: f799e6983a8838349ac68bafede4d8c5,
+        type: 3}
+      propertyPath: sceneName
+      value: scn_Level1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f799e6983a8838349ac68bafede4d8c5, type: 3}
