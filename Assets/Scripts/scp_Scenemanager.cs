@@ -16,7 +16,12 @@ public class scp_Scenemanager : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(WaitAndLoadNewScene());
+
+        if (SceneManager.GetActiveScene().name == "scn_MainMenu")
+        {
+            StartCoroutine(WaitAndLoadNewScene());
+        }
+        
         StartCoroutine(GameOverWhenTimeRunsOut());
         
     }
@@ -30,16 +35,13 @@ public class scp_Scenemanager : MonoBehaviour
 
     IEnumerator WaitAndLoadNewScene()
     {
-        
-        if (SceneManager.GetActiveScene().name == "scn_MainMenu")
+        if (Input.anyKey)
         {
-            if (Input.anyKey)
-            {
-                transitionAnim.SetTrigger("end");
-                yield return new WaitForSeconds(1.5f);
-                SceneManager.LoadScene(sceneName);
-            }
+            transitionAnim.SetTrigger("end");
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(sceneName);
         }
+        
         
     }
 
