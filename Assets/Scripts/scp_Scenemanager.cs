@@ -21,8 +21,11 @@ public class scp_Scenemanager : MonoBehaviour
         {
             StartCoroutine(WaitAndLoadNewScene());
         }
+        if (gameMan != null)
+        {
+            StartCoroutine(GameOverWhenTimeRunsOut());
+        }
         
-        StartCoroutine(GameOverWhenTimeRunsOut());
         
     }
 
@@ -47,15 +50,13 @@ public class scp_Scenemanager : MonoBehaviour
 
     IEnumerator GameOverWhenTimeRunsOut()
     {
-        if (gameMan != null)
+        if (gameMan.timeLeft <= 0)
         {
-            if (gameMan.timeLeft <= 0)
-            {
-                transitionAnim.SetTrigger("end");
-                yield return new WaitForSeconds(1.5f);
-                SceneManager.LoadScene(sceneName);
-            }
-        }        
+            transitionAnim.SetTrigger("end");
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(sceneName);
+        }
+            
     }
     
 }
