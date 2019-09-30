@@ -24,11 +24,11 @@ public class scp_Player : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
-        
+
         if (collision.gameObject.tag == "GoodBox")
         {
             gameManager.score += gameManager.packageValues[0];
-            gameManager.successRate++;            
+            gameManager.successRate++;
             vfx.GoodPickupParticles();
             vfx.addPointsPromptMethod();
             ripple.Ripple();
@@ -45,10 +45,18 @@ public class scp_Player : MonoBehaviour
                 gameManager.score = 0;
             }
             gameManager.successRate--;
+            gameManager.lives--;
             vfx.CamShake();
             vfx.BadPickupParticles();
             vfx.subtractPointsPromptMethod();
         }
+
+        else if (collision.gameObject.tag == "GainLife")
+        {
+            gameManager.lives++;
+        }
+        
+        
          
         
     }

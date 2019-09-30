@@ -36,12 +36,12 @@ public class scp_UIManager : MonoBehaviour
     public void ScoreAndTimerUpdater()
     {
         scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
-        timerTextBox.text = gameManager.timeLeft.ToString("f0");
+        timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
     }
 
     private void ChangeTimerColor()
     {
-        if (gameManager.timeLeft <= 15)
+        if (gameManager.lives < 2)
         {
             timerTextBox.color = new Color(1,0,0);
         }
@@ -58,6 +58,6 @@ public class scp_UIManager : MonoBehaviour
         scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
 
         timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
-        timerTextBox.text = gameManager.timeLeft.ToString("f0");
+        timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
     }
 }

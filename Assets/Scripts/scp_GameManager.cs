@@ -10,6 +10,7 @@ public class scp_GameManager : MonoBehaviour
     public float timeLeft = 60f;
     public int[] packageValues;
     public int successRate;
+    public int lives = 5;
     
 
     private void Awake()
@@ -70,6 +71,9 @@ public class scp_GameManager : MonoBehaviour
         score = Mathf.Clamp(score, 0, 100000);
         successRate = Mathf.Clamp(successRate, 0, 100);
         timeLeft = Mathf.Clamp(timeLeft, 0, 120);
+        lives = Mathf.Clamp(lives, 0, 10);
         
     }
+
+
 }

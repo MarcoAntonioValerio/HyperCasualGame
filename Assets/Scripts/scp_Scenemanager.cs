@@ -50,7 +50,7 @@ public class scp_Scenemanager : MonoBehaviour
 
     IEnumerator GameOverWhenTimeRunsOut()
     {
-        if (gameMan.timeLeft <= 0)
+        if (gameMan.lives <= 0)
         {
             transitionAnim.SetTrigger("end");
             yield return new WaitForSeconds(1.5f);
