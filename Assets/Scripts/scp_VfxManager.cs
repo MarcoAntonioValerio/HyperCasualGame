@@ -21,12 +21,13 @@ public class scp_VfxManager : MonoBehaviour
     [Header("GlitchEffect")]
     public DigitalGlitch glitch;
     public scp_GameManager gameManager;
-    public float glitchEnd          = 0.95f;
-    public float glitchStageFour    = 0.16f;
-    public float glitchStageThree   = 0.12f;
-    public float glitchStageTwo     = 0.08f;
-    public float glitchStageOne     = 0.04f;
-    public float glitchZero         = 0f;
+    [SerializeField] float glitchEnd          = 0.95f;
+    [SerializeField] float glitchStageFour    = 0.16f;
+    [SerializeField] float glitchStageThree   = 0.12f;
+    [SerializeField] float glitchStageTwo     = 0.08f;
+    [SerializeField] float glitchStageOne     = 0.04f;
+    [SerializeField] float glitchZero         = 0f;  
+    [SerializeField] float gameOverGlitchDelay = 0f; 
 
     private void Awake()
     {
@@ -35,14 +36,27 @@ public class scp_VfxManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "scn_GameOver")
         {
             GameOverSceneEffects();
+            gameOverGlitchDelay = Mathf.Clamp(gameOverGlitchDelay, 0, 1);
+
         }
     }
     private void Update()
     {
+        
         if (SceneManager.GetActiveScene().name == "scn_Level1")
         {
             glitchWhenFailing();
-        }         
+
+        }
+        if (SceneManager.GetActiveScene().name == "scn_GameOver")
+        {
+            gameOverGlitchDelay += 0.05f * Time.deltaTime;            
+            glitch.intensity -= gameOverGlitchDelay;
+            if (glitch.intensity <= glitchStageOne)
+            {
+                glitch.intensity = glitchStageOne;
+            }
+        }
     }
     public void CamShake()
     {
@@ -77,11 +91,11 @@ public class scp_VfxManager : MonoBehaviour
         switch (gameManager.lives)
         {
             case 5: glitch.intensity = glitchZero; break;
-            case 4: glitch.intensity = Mathf.Lerp(glitchZero, glitchStageOne, 1f); break;
-            case 3: glitch.intensity = Mathf.Lerp(glitchStageOne, glitchStageTwo, 1f); break;
-            case 2: glitch.intensity = Mathf.Lerp(glitchStageTwo, glitchStageThree, 1f); break;
-            case 1: glitch.intensity = Mathf.Lerp(glitchStageThree, glitchStageFour, 1f); break;
-            case 0: glitch.intensity = Mathf.Lerp(glitchStageFour, glitchEnd, 0.2f); break;
+            case 4: glitch.intensity = Mathf.Lerp(glitchZero, glitchStageOne, 1 ); break;
+            case 3: glitch.intensity = Mathf.Lerp(glitchStageOne, glitchStageTwo, 1 ); break;
+            case 2: glitch.intensity = Mathf.Lerp(glitchStageTwo, glitchStageThree, 1 ); break;
+            case 1: glitch.intensity = Mathf.Lerp(glitchStageThree, glitchStageFour, 1 ); break;
+            case 0: glitch.intensity = Mathf.Lerp(glitchStageFour, glitchEnd, 0.2f ); break;
         }
     }
 
@@ -95,7 +109,8 @@ public class scp_VfxManager : MonoBehaviour
     IEnumerator WaitThenReduceGlitch()
     {
         yield return new WaitForSeconds(2);
-        glitch.intensity = Mathf.Lerp(glitchEnd, glitchStageOne, 5f);
+        
+        
 
     }
 }
