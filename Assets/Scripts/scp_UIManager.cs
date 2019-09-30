@@ -14,8 +14,10 @@ public class scp_UIManager : MonoBehaviour
     public  TextMeshProUGUI timerTextBox;
     //Variables
     public string testString = "Test String";
+    private Text gameOverScore;
+    private Text gameOverScoreComment;
 
-    
+
 
     private void Awake()
     {
@@ -31,6 +33,8 @@ public class scp_UIManager : MonoBehaviour
     {
         ScoreAndTimerUpdater();
         ChangeTimerColor();
+        FinalScore();
+        FinalComment();
     }
 
     public void ScoreAndTimerUpdater()
@@ -47,6 +51,48 @@ public class scp_UIManager : MonoBehaviour
         }
     }
 
+    private void FinalScore()
+    {
+        gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
+    }
+
+    private void FinalComment()
+    {
+        if (gameManager.score < 2000)
+        {
+            gameOverScoreComment.text = "HUMAN, TRY AGAIN - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 2000 && gameManager.score < 5000)
+        {
+            gameOverScoreComment.text = "LOW SKILL DETECTED - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 5000 && gameManager.score < 10000)
+        {
+            gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 5000 && gameManager.score < 10000)
+        {
+            gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 10000 && gameManager.score < 30000)
+        {
+            gameOverScoreComment.text = "ASCENSION LEVEL - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 30000 && gameManager.score < 60000)
+        {
+            gameOverScoreComment.text = "GODLIKE - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 60000 && gameManager.score < 100000)
+        {
+            gameOverScoreComment.text = "01001101011 - RESTART SESSION" + gameManager.score;
+        }
+        else if (gameManager.score >= 100000 && gameManager.score < 200000)
+        {
+            gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION" + gameManager.score;
+        }
+    }
+
+
    
 
     private void Initialisation()
@@ -59,5 +105,11 @@ public class scp_UIManager : MonoBehaviour
 
         timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
         timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
+
+        gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();
+        
+
+        gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();
+
     }
 }

@@ -10,18 +10,23 @@ public class scp_Scenemanager : MonoBehaviour
     public string sceneName;
     // Start is called before the first frame update
     void Start()
-    {        
+    {
         FindGameManager();
     }
 
+    
     private void Update()
     {
 
-        if (SceneManager.GetActiveScene().name == "scn_MainMenu")
+        if (SceneManager.GetActiveScene().name == "scn_MainMenu" )
         {
             StartCoroutine(WaitAndLoadNewScene());
         }
-        if (gameMan != null)
+        else if (SceneManager.GetActiveScene().name == "scn_GameOver")
+            {
+                StartCoroutine(WaitAndLoadNewScene());
+            }
+        else if (gameMan != null)
         {
             StartCoroutine(GameOverWhenTimeRunsOut());
         }
@@ -55,6 +60,7 @@ public class scp_Scenemanager : MonoBehaviour
             transitionAnim.SetTrigger("end");
             yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene(sceneName);
+
         }
             
     }
