@@ -12,6 +12,8 @@ public class scp_UIManager : MonoBehaviour
     private scp_GameManager gameManager;
     public  TextMeshProUGUI scoreTextBox;
     public  TextMeshProUGUI timerTextBox;
+    public  GameObject minusOneLifePosition;
+    public  Text minusOneLife;
     //Variables
     public string testString = "Test String";
     private Text gameOverScore;
@@ -24,13 +26,11 @@ public class scp_UIManager : MonoBehaviour
         Initialisation();
     }
     
-    void Start()
-    {
-        
-    }    
+    
     
     void Update()
     {
+        
         ScoreAndTimerUpdater();
         ChangeTimerColor();
         FinalScore();
@@ -39,6 +39,7 @@ public class scp_UIManager : MonoBehaviour
 
     public void ScoreAndTimerUpdater()
     {
+        
         scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
         timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
     }
@@ -53,7 +54,10 @@ public class scp_UIManager : MonoBehaviour
 
     private void FinalScore()
     {
-        gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
+        if (gameOverScore != null)
+        {
+            gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
+        }
     }
 
     private void FinalComment()
@@ -92,11 +96,19 @@ public class scp_UIManager : MonoBehaviour
         }
     }
 
+    public void MinusOneLifeFeedback()
+    {
+        Instantiate(minusOneLife, minusOneLifePosition.transform.position, Quaternion.identity);
+        minusOneLife.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        minusOneLife.transform.position = minusOneLifePosition.transform.position;
+        Destroy(minusOneLife, 2f);
 
+    }
    
 
     private void Initialisation()
     {
+        
         packages = FindObjectOfType<scp_FallingObjectsLogic>();
         gameManager = FindObjectOfType<scp_GameManager>();
 
@@ -106,10 +118,15 @@ public class scp_UIManager : MonoBehaviour
         timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
         timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
 
-        gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();
-        
+        if (gameOverScore != null)
+        {
+            gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();
+        }
 
-        gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();
+        if (gameOverScoreComment != null)
+        {
+            gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();
+        }     
 
     }
 }

@@ -24,7 +24,7 @@ public class scp_Scenemanager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "scn_GameOver")
             {
-                StartCoroutine(WaitAndLoadNewScene());
+                StartCoroutine(RestartGame());
             }
         else if (gameMan != null)
         {
@@ -47,10 +47,10 @@ public class scp_Scenemanager : MonoBehaviour
         {
             transitionAnim.SetTrigger("end");
             yield return new WaitForSeconds(1.5f);
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);            
         }
-        
-        
+
+
     }
 
     IEnumerator GameOverWhenTimeRunsOut()
@@ -63,6 +63,19 @@ public class scp_Scenemanager : MonoBehaviour
 
         }
             
+    }
+
+    IEnumerator RestartGame()
+    {
+        if (Input.anyKey)
+        {
+            transitionAnim.SetTrigger("end");
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(sceneName);
+            gameMan.score = 0;
+            gameMan.successRate = 0;
+            gameMan.lives = 5;
+        }
     }
     
 }

@@ -9,6 +9,7 @@ public class scp_Player : MonoBehaviour
     private scp_FallingObjectsLogic fallingObjects;
     private scp_VfxManager vfx;
     private scp_Ripple ripple;
+    public scp_UIManager ui;
     
     //Variables
     public bool greenCollected = false;
@@ -49,6 +50,8 @@ public class scp_Player : MonoBehaviour
             vfx.CamShake();
             vfx.BadPickupParticles();
             vfx.subtractPointsPromptMethod();
+            ui.MinusOneLifeFeedback();
+            
         }
 
         else if (collision.gameObject.tag == "GainLife")
@@ -67,5 +70,6 @@ public class scp_Player : MonoBehaviour
         fallingObjects  = FindObjectOfType<scp_FallingObjectsLogic>();
         vfx             = FindObjectOfType<scp_VfxManager>();
         ripple          = FindObjectOfType<scp_Ripple>();
+        ui              = FindObjectOfType<scp_UIManager>(); 
     }
 }
