@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class scp_UIManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class scp_UIManager : MonoBehaviour
     public  TextMeshProUGUI scoreTextBox;
     public  TextMeshProUGUI timerTextBox;
     public  GameObject minusOneLifePosition;
-    public  Text minusOneLife;
+    public  GameObject minusOneLife;
     //Variables
     public string testString = "Test String";
     private Text gameOverScore;
@@ -29,79 +30,95 @@ public class scp_UIManager : MonoBehaviour
     
     
     void Update()
+    {        
+        ScoreAndTimerUpdater();
+        ChangeTimerColor();               
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)    
     {
         
-        ScoreAndTimerUpdater();
-        ChangeTimerColor();
-        FinalScore();
-        FinalComment();
+        GameOverInitialisation();
     }
 
     public void ScoreAndTimerUpdater()
     {
-        
-        scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
-        timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
+
+        if (scoreTextBox != null)
+        {
+            scoreTextBox.text = "SCORE:" + gameManager.score.ToString();
+        }
+        if (timerTextBox != null)
+        {
+            timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
+        }
+            
     }
 
     private void ChangeTimerColor()
     {
-        if (gameManager.lives < 2)
+        if (timerTextBox != null)
         {
-            timerTextBox.color = new Color(1,0,0);
+            if (gameManager.lives < 2)
+            {
+                timerTextBox.color = new Color(1, 0, 0);
+            }
         }
+        
     }
 
-    private void FinalScore()
-    {
-        if (gameOverScore != null)
-        {
-            gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
-        }
-    }
 
     private void FinalComment()
     {
-        if (gameManager.score < 2000)
+        if (gameOverScoreComment != null)
         {
-            gameOverScoreComment.text = "HUMAN, TRY AGAIN - RESTART SESSION" + gameManager.score;
+            if (gameManager.score < 2000)
+            {
+                gameOverScoreComment.text = "HUMAN, TRY AGAIN - RESTART SESSION";
+            }
+            else if (gameManager.score >= 2000 && gameManager.score < 5000)
+            {
+                gameOverScoreComment.text = "LOW SKILL DETECTED - RESTART SESSION";
+            }
+            else if (gameManager.score >= 5000 && gameManager.score < 10000)
+            {
+                gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION";
+            }
+            else if (gameManager.score >= 5000 && gameManager.score < 10000)
+            {
+                gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION";
+            }
+            else if (gameManager.score >= 10000 && gameManager.score < 30000)
+            {
+                gameOverScoreComment.text = "ASCENSION LEVEL - RESTART SESSION";
+            }
+            else if (gameManager.score >= 30000 && gameManager.score < 60000)
+            {
+                gameOverScoreComment.text = "GODLIKE - RESTART SESSION";
+            }
+            else if (gameManager.score >= 60000 && gameManager.score < 100000)
+            {
+                gameOverScoreComment.text = "01001101011 - RESTART SESSION";
+            }
+            else if (gameManager.score >= 100000 && gameManager.score < 200000)
+            {
+                gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION";
+            }
         }
-        else if (gameManager.score >= 2000 && gameManager.score < 5000)
-        {
-            gameOverScoreComment.text = "LOW SKILL DETECTED - RESTART SESSION" + gameManager.score;
-        }
-        else if (gameManager.score >= 5000 && gameManager.score < 10000)
-        {
-            gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION" + gameManager.score;
-        }
-        else if (gameManager.score >= 5000 && gameManager.score < 10000)
-        {
-            gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION" + gameManager.score;
-        }
-        else if (gameManager.score >= 10000 && gameManager.score < 30000)
-        {
-            gameOverScoreComment.text = "ASCENSION LEVEL - RESTART SESSION" + gameManager.score;
-        }
-        else if (gameManager.score >= 30000 && gameManager.score < 60000)
-        {
-            gameOverScoreComment.text = "GODLIKE - RESTART SESSION" + gameManager.score;
-        }
-        else if (gameManager.score >= 60000 && gameManager.score < 100000)
-        {
-            gameOverScoreComment.text = "01001101011 - RESTART SESSION" + gameManager.score;
-        }
-        else if (gameManager.score >= 100000 && gameManager.score < 200000)
-        {
-            gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION" + gameManager.score;
-        }
+            
     }
 
     public void MinusOneLifeFeedback()
     {
-        Instantiate(minusOneLife, minusOneLifePosition.transform.position, Quaternion.identity);
-        minusOneLife.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        minusOneLife.transform.position = minusOneLifePosition.transform.position;
-        Destroy(minusOneLife, 2f);
+        var minusFeedback = Instantiate(minusOneLife, minusOneLifePosition.transform.position, Quaternion.identity) as GameObject;
+        minusFeedback.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        minusFeedback.transform.position = minusOneLifePosition.transform.position;
+        Destroy(minusFeedback, 2f);
 
     }
    
@@ -118,15 +135,21 @@ public class scp_UIManager : MonoBehaviour
         timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
         timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
 
+        
+
+    }
+
+    private void GameOverInitialisation()
+    {
         if (gameOverScore != null)
         {
             gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();
-        }
-
+        } 
+        gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
         if (gameOverScoreComment != null)
         {
             gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();
-        }     
-
+        }        
+        FinalComment();
     }
 }
