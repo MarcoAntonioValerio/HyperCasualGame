@@ -9,6 +9,7 @@ public class scp_Dash : MonoBehaviour
     private float dashTime;
     public float startDashTime;
     public int direction;
+    private scp_AudioManager audio;
     
     //Dash Particles Variables
     //public ParticleSystem dashParticlesLeft;
@@ -29,7 +30,8 @@ public class scp_Dash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        anim = GetComponent<Animator>();        
+        anim = GetComponent<Animator>();
+        audio = GameObject.Find("Pickups").GetComponent<scp_AudioManager>();
     }    
     
 
@@ -44,13 +46,15 @@ public class scp_Dash : MonoBehaviour
                 rb.velocity = Vector2.right * dashSpeed;
                 direction = 2;               
                 anim.SetBool("isDashing", true);
+                audio.Dash();
                 
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 rb.velocity = Vector2.left * dashSpeed;
                 direction = 1;                
-                anim.SetBool("isDashing", true);      
+                anim.SetBool("isDashing", true);
+                audio.Dash();
 
             }
         }

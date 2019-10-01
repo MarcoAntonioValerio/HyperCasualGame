@@ -75,6 +75,6 @@ public class scp_Player : MonoBehaviour
         vfx             = FindObjectOfType<scp_VfxManager>();
         ripple          = FindObjectOfType<scp_Ripple>();
         ui              = FindObjectOfType<scp_UIManager>();
-        audio           = FindObjectOfType<scp_AudioManager>();     
+        audio = GameObject.Find("Pickups").GetComponent<scp_AudioManager>();
     }
 }
