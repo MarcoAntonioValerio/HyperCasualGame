@@ -141,15 +141,9 @@ public class scp_UIManager : MonoBehaviour
 
     private void GameOverInitialisation()
     {
-        if (gameOverScore != null)
-        {
-            gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();
-        } 
+        gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();        
         gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
-        if (gameOverScoreComment != null)
-        {
-            gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();
-        }        
+        gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();             
         FinalComment();
     }
 }

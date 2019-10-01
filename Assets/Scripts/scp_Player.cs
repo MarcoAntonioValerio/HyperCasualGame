@@ -10,6 +10,7 @@ public class scp_Player : MonoBehaviour
     private scp_VfxManager vfx;
     private scp_Ripple ripple;
     public scp_UIManager ui;
+    public scp_AudioManager audio;
     
     //Variables
     public bool greenCollected = false;
@@ -33,6 +34,8 @@ public class scp_Player : MonoBehaviour
             vfx.GoodPickupParticles();
             vfx.addPointsPromptMethod();
             ripple.Ripple();
+            audio.GoodPickupSound();
+            
             greenCollected = true;
         }
         else if (collision.gameObject.tag == "BadBox")
@@ -51,6 +54,7 @@ public class scp_Player : MonoBehaviour
             vfx.BadPickupParticles();
             vfx.subtractPointsPromptMethod();
             ui.MinusOneLifeFeedback();
+            audio.BadPickupSound();
             
         }
 
@@ -70,6 +74,7 @@ public class scp_Player : MonoBehaviour
         fallingObjects  = FindObjectOfType<scp_FallingObjectsLogic>();
         vfx             = FindObjectOfType<scp_VfxManager>();
         ripple          = FindObjectOfType<scp_Ripple>();
-        ui              = FindObjectOfType<scp_UIManager>(); 
+        ui              = FindObjectOfType<scp_UIManager>();
+        audio           = FindObjectOfType<scp_AudioManager>();     
     }
 }

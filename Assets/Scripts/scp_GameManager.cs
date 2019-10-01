@@ -41,6 +41,7 @@ public class scp_GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+        
     }
 
     private void Initialisation()
