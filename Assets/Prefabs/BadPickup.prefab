@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1595814157363ff44bb4ffa0740a1afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwSpawns: 0.1
+  startTimeBtwSpawns: 0.05
   echo: {fileID: 261569540294910536, guid: 5451fb74ea4f6314f9552a0600333539, type: 3}
   dash: {fileID: 0}
-  instanceLife: 0.2
+  instanceLife: 0.5
   fallen: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135, type: 3}

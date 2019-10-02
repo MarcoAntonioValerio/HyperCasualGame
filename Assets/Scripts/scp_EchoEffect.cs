@@ -17,7 +17,8 @@ public class scp_EchoEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dash != null) { GhostTrailPlayer(); }        
+        if (dash != null) { GhostTrailPlayer(); }
+        PickupTrail();
 
     }
 
@@ -38,9 +39,26 @@ public class scp_EchoEffect : MonoBehaviour
               {
                     timeBtwSpawns -= Time.deltaTime;
               }
-       }
+       }       
         
         
     }
+    private void PickupTrail()
+    {
+        if (tag == "BadBox" || tag == "GoodBox")
+        {
+            if (timeBtwSpawns <= 0)
+            {
+                GameObject instance = (GameObject)Instantiate(echo, transform.position, Quaternion.identity);
+                Destroy(instance, instanceLife);
+                timeBtwSpawns = startTimeBtwSpawns;
+            }
+            else
+            {
+                timeBtwSpawns -= Time.deltaTime;
+            }
+        }
+    }
+
     
 }
