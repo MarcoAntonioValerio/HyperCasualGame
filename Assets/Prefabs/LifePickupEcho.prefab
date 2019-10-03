@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1763316943202718913}
   - component: {fileID: 6144656962426729248}
   - component: {fileID: 4921515850240006211}
-  - component: {fileID: 5658720551662657759}
+  - component: {fileID: 6157321238886253184}
   m_Layer: 0
   m_Name: LifePickupEcho
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &5658720551662657759
+--- !u!95 &6157321238886253184
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

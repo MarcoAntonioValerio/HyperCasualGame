@@ -46,4 +46,7 @@ MonoBehaviour:
   countdownText: {fileID: 0}
   scoreTextBox: {fileID: 0}
   timerTextBox: {fileID: 0}
+  minusOneLifePosition: {fileID: 0}
+  minusOneLife: {fileID: 1088197233758167711, guid: 4dcb68ed43bee53498e027874859a3fe,
+    type: 3}
   testString: Test String

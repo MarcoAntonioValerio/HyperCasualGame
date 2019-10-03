@@ -9,8 +9,8 @@ public class scp_Player : MonoBehaviour
     private scp_FallingObjectsLogic fallingObjects;
     private scp_VfxManager vfx;
     private scp_Ripple ripple;
-    public scp_UIManager ui;
-    public scp_AudioManager audio;
+    public  scp_UIManager ui;
+    public  scp_AudioManager audioObject;
     
     //Variables
     public bool greenCollected = false;
@@ -34,7 +34,7 @@ public class scp_Player : MonoBehaviour
             vfx.GoodPickupParticles();
             vfx.addPointsPromptMethod();
             ripple.Ripple();
-            audio.GoodPickupSound();
+            audioObject.GoodPickupSound();
             
             greenCollected = true;
         }
@@ -48,24 +48,23 @@ public class scp_Player : MonoBehaviour
             {
                 gameManager.score = 0;
             }
-            gameManager.successRate--;
+            gameManager.successRate -= 3;
             gameManager.lives--;
             vfx.CamShake();
             vfx.BadPickupParticles();
             vfx.subtractPointsPromptMethod();
             ui.MinusOneLifeFeedback();
-            audio.BadPickupSound();
+            audioObject.BadPickupSound();
             
         }
 
-        else if (collision.gameObject.tag == "GainLife")
+        else if (collision.gameObject.tag == "LifeBox")
         {
             gameManager.lives++;
+            ripple.Ripple();
+            ui.PlusOneLifeFeedback();
+            audioObject.LifePickupSound();
         }
-        
-        
-         
-        
     }
 
     private void Initialisation()
@@ -75,6 +74,6 @@ public class scp_Player : MonoBehaviour
         vfx             = FindObjectOfType<scp_VfxManager>();
         ripple          = FindObjectOfType<scp_Ripple>();
         ui              = FindObjectOfType<scp_UIManager>();
-        audio = GameObject.Find("Pickups").GetComponent<scp_AudioManager>();
+        audioObject     = GameObject.Find("Pickups").GetComponent<scp_AudioManager>();
     }
 }

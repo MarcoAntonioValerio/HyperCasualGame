@@ -15,6 +15,7 @@ public class scp_UIManager : MonoBehaviour
     public  TextMeshProUGUI timerTextBox;
     public  GameObject minusOneLifePosition;
     public  GameObject minusOneLife;
+    public  GameObject plusOneLife;
     //Variables
     public string testString = "Test String";
     private Text gameOverScore;
@@ -120,6 +121,14 @@ public class scp_UIManager : MonoBehaviour
         minusFeedback.transform.position = minusOneLifePosition.transform.position;
         Destroy(minusFeedback, 2f);
 
+    }
+
+    public void PlusOneLifeFeedback()
+    {
+        var plusFeedback = Instantiate(plusOneLife, minusOneLifePosition.transform.position, Quaternion.identity) as GameObject;
+        plusFeedback.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        plusFeedback.transform.position = minusOneLifePosition.transform.position;
+        Destroy(plusFeedback, 2f);
     }
    
 

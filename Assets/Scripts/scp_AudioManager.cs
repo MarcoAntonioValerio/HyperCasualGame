@@ -8,6 +8,7 @@ public class scp_AudioManager : MonoBehaviour
     public AudioClip goodPickupSound;
     public AudioClip badPickupSound;
     public AudioClip dashSound;
+    public AudioClip lifeSound;
     public AudioSource audioManager;
    
     // Start is called before the first frame update
@@ -66,5 +67,12 @@ public class scp_AudioManager : MonoBehaviour
         audioManager.pitch = Random.Range(0.9f, 1.1f);
         audioManager.PlayOneShot(dashSound);
         audioManager.volume = 0.4f;
+    }
+    public void LifePickupSound()
+    {
+        audioManager.clip = lifeSound;
+        audioManager.pitch = Random.Range(0.9f, 1.1f);
+        audioManager.PlayOneShot(lifeSound);
+        audioManager.volume = 1f;
     }
 }

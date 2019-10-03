@@ -80,8 +80,8 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
     private void DeployOrder()
     {
-        packageLocation = Random.Range(0, 5);
-        packageRandomness = Random.Range(0, 5);
+        packageLocation     = Random.Range(0, 5);
+        packageRandomness   = Random.Range(0, 100);
 
         timer -= Time.deltaTime;
 
@@ -99,7 +99,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private void DeployPackage()
     {    
        
-        switch (packageRandomness)
+        /*switch (packageRandomness)
         {
             case 0:
                 Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
@@ -120,7 +120,29 @@ public class scp_FallingObjectsLogic : MonoBehaviour
                 Instantiate(packages[4], posArray[packageLocation], Quaternion.identity);
                 amIaGoodPackage = true;
                 break;            
+        }*/
+
+        if (packageRandomness == 0 || packageRandomness <= 70)
+        {
+            Debug.Log("Good");
+            Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
+            amIaGoodPackage = true;
         }
+        else if (packageRandomness >= 71 || packageRandomness <= 90)
+        {
+            Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
+            amIaGoodPackage = false;
+            Debug.Log("Bad");
+
+        }
+        else if (packageRandomness >= 91 || packageRandomness <= 100)
+        {
+            Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
+            Debug.Log("Life");
+            //amIaGoodPackage = true;
+        }
+
+        Debug.Log(packageRandomness);
 
         hasBeenDeployed = true;
     }
@@ -149,7 +171,10 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         {
             DeployCaseFour();
         }
-
+        if (gameMan.successRate >= 40)
+        {
+            DeployCaseFive();
+        }
 
     }
 
@@ -220,6 +245,20 @@ public class scp_FallingObjectsLogic : MonoBehaviour
             {
                 DeployPackage();
                 timer = 0.25f;
+            }
+        }
+    }
+    private void DeployCaseFive()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                DeployPackage();
+                timer = 0.10f;
             }
         }
     }
