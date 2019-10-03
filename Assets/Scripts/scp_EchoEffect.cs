@@ -45,7 +45,7 @@ public class scp_EchoEffect : MonoBehaviour
     }
     private void PickupTrail()
     {
-        if (tag == "BadBox" || tag == "GoodBox")
+        if (tag == "BadBox" || tag == "GoodBox" || tag == "LifeBox")
         {
             if (timeBtwSpawns <= 0)
             {
