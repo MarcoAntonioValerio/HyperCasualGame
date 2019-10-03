@@ -1803,21 +1803,111 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
         type: 3}
-      propertyPath: packages.Array.data[3]
+      propertyPath: packages.Array.data[10]
+      value: 
+      objectReference: {fileID: 8996789848112930031, guid: b7f15cca2ffc11b44b41e31f49c2485a,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[11]
+      value: 
+      objectReference: {fileID: 1672529824157174036, guid: ce14d5e697e1c7e40ab54f2a57253a55,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[12]
       value: 
       objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
         type: 3}
     - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
         type: 3}
-      propertyPath: packages.Array.data[4]
+      propertyPath: packages.Array.data[13]
       value: 
       objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[14]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[15]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[16]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[17]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[18]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[19]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[20]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[21]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[22]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[23]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[24]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: packages.Array.data[25]
+      value: 
+      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+        type: 3}
+    - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
+        type: 3}
+      propertyPath: lifePackage
+      value: 
+      objectReference: {fileID: 1672529824157174036, guid: ce14d5e697e1c7e40ab54f2a57253a55,
         type: 3}
     - target: {fileID: 6748926940924965607, guid: e8134171de3afbe43a802b2688cfd135,
         type: 3}
       propertyPath: packages.Array.data[5]
       value: 
-      objectReference: {fileID: 6953169502706892445, guid: fd5f7ca403eb6d843bae5ffab6f76cd2,
+      objectReference: {fileID: 8996789848112930031, guid: b7f15cca2ffc11b44b41e31f49c2485a,
         type: 3}
     - target: {fileID: 6748926940924965606, guid: e8134171de3afbe43a802b2688cfd135,
         type: 3}

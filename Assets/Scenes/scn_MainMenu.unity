@@ -657,6 +657,7 @@ MonoBehaviour:
   goodPickupSound: {fileID: 0}
   badPickupSound: {fileID: 0}
   dashSound: {fileID: 0}
+  lifeSound: {fileID: 0}
   audioManager: {fileID: 0}
 --- !u!1 &1460056686
 GameObject:
@@ -1054,6 +1055,7 @@ MonoBehaviour:
   goodPickupSound: {fileID: 8300000, guid: a0e399f2568bdf442b51bdf5ff694e38, type: 3}
   badPickupSound: {fileID: 8300000, guid: 2279d47c7d9817246ae81b72e8ee0700, type: 3}
   dashSound: {fileID: 8300000, guid: 88ffcefd94d1d5742aaa3d6d047bce3c, type: 3}
+  lifeSound: {fileID: 8300000, guid: ea71a12d0075eab4e99db87a7236ffe6, type: 3}
   audioManager: {fileID: 0}
 --- !u!1001 &1892473102
 PrefabInstance:

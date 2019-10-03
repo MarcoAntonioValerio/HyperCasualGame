@@ -26,6 +26,9 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     public int packageLocation;
     public bool hasBeenDeployed = false;
     public bool amIaGoodPackage = false;
+    public float timerForLife = 15f;
+    public GameObject lifePackage;
+
 
     //TODO
     /* Find a way to spawn the packages at
@@ -38,10 +41,13 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        DeployLife();
         Countdown();
         AdaptiveDifficulty();
         countdown = Mathf.Clamp(countdown, 0, 10);
+        timerForLife -= Time.deltaTime;
+
     }
 
     
@@ -81,7 +87,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private void DeployOrder()
     {
         packageLocation     = Random.Range(0, 5);
-        packageRandomness   = Random.Range(0, 100);
+        packageRandomness   = Random.Range(0, 10);
 
         timer -= Time.deltaTime;
 
@@ -99,7 +105,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private void DeployPackage()
     {    
        
-        /*switch (packageRandomness)
+        switch (packageRandomness)
         {
             case 0:
                 Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
@@ -119,32 +125,48 @@ public class scp_FallingObjectsLogic : MonoBehaviour
             case 4:
                 Instantiate(packages[4], posArray[packageLocation], Quaternion.identity);
                 amIaGoodPackage = true;
-                break;            
-        }*/
-
-        if (packageRandomness == 0 || packageRandomness <= 70)
-        {
-            Debug.Log("Good");
-            Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
-            amIaGoodPackage = true;
-        }
-        else if (packageRandomness >= 71 || packageRandomness <= 90)
-        {
-            Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
-            amIaGoodPackage = false;
-            Debug.Log("Bad");
-
-        }
-        else if (packageRandomness >= 91 || packageRandomness <= 100)
-        {
-            Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
-            Debug.Log("Life");
-            //amIaGoodPackage = true;
-        }
-
-        Debug.Log(packageRandomness);
+                break;
+            case 5:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 6:
+                Instantiate(packages[6], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 7:
+                Instantiate(packages[7], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 8:
+                Instantiate(packages[8], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 9:
+                Instantiate(packages[9], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 10:
+                Instantiate(packages[10], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;          
+            
+        }        
 
         hasBeenDeployed = true;
+    }
+
+    private void DeployLife()
+    {
+        
+        if(timerForLife <= 0)
+        {
+            Debug.Log("DeployLife triggered");
+            Instantiate(lifePackage, posArray[packageLocation], Quaternion.identity);
+            timerForLife = Random.Range(5f, 12f);
+        }  
+        
+        
     }
 
     
