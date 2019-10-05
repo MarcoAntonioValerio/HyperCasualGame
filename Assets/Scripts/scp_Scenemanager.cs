@@ -75,6 +75,7 @@ public class scp_Scenemanager : MonoBehaviour
             gameMan.score = 0;
             gameMan.successRate = 0;
             gameMan.lives = 5;
+            gameMan.playTime = 0f;
         }
     }
     

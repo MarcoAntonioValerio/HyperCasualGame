@@ -163,7 +163,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         {
             Debug.Log("DeployLife triggered");
             Instantiate(lifePackage, posArray[packageLocation], Quaternion.identity);
-            timerForLife = Random.Range(5f, 12f);
+            timerForLife = Random.Range(12f, 20f);
         }  
         
         

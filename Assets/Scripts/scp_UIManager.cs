@@ -144,6 +144,8 @@ public class scp_UIManager : MonoBehaviour
         timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
         timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
 
+
+
         
 
     }
@@ -151,7 +153,7 @@ public class scp_UIManager : MonoBehaviour
     private void GameOverInitialisation()
     {
         gameOverScore = GameObject.Find("txt_TotalScore").GetComponent<Text>();        
-        gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score;
+        gameOverScore.text = "THE TOTAL SCORE IS " + gameManager.score + " AND YOU SURVIVED " + gameManager.playTime.ToString("f2") + " seconds!"; ;
         gameOverScoreComment = GameObject.Find("txt_TotalScoreComment").GetComponent<Text>();             
         FinalComment();
     }

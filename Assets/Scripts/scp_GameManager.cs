@@ -11,6 +11,9 @@ public class scp_GameManager : MonoBehaviour
     public int[] packageValues;
     public int successRate;
     public int lives = 5;
+    public float playTime = 0;
+
+
     
 
     private void Awake()
@@ -29,6 +32,10 @@ public class scp_GameManager : MonoBehaviour
     {
         ValuesClamping();
         TimeGoingDown();
+        if (SceneManager.GetActiveScene().name == ("scn_Level1"))
+        {
+            StartCounting();
+        }
     }
 
     private void SetupSingleton()
@@ -46,6 +53,7 @@ public class scp_GameManager : MonoBehaviour
 
     private void Initialisation()
     {
+        playTime = 0f;
         score = 0;
         successRate = 0;
     }
@@ -76,5 +84,9 @@ public class scp_GameManager : MonoBehaviour
         
     }
 
+    private void StartCounting()
+    {
+        playTime += Time.deltaTime;
+    }
 
 }
