@@ -43,7 +43,7 @@ public class scp_Scenemanager : MonoBehaviour
 
     IEnumerator WaitAndLoadNewScene()
     {
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             transitionAnim.SetTrigger("end");
             yield return new WaitForSeconds(1.5f);

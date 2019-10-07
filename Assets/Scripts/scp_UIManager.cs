@@ -110,6 +110,22 @@ public class scp_UIManager : MonoBehaviour
             {
                 gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION";
             }
+            else if (gameManager.score >= 200000 && gameManager.score < 300000)
+            {
+                gameOverScoreComment.text = "Jesus - RESTART SESSION";
+            }
+            else if (gameManager.score >= 300000 && gameManager.score < 400000)
+            {
+                gameOverScoreComment.text = "SHOW THIS SCORE TO YOUR MOM - RESTART SESSION";
+            }
+            else if (gameManager.score >= 400000 && gameManager.score < 500000)
+            {
+                gameOverScoreComment.text = "YOU ARE A PROFESSIONAL NOW - RESTART SESSION";
+            }
+            else if (gameManager.score >= 500000 && gameManager.score < 600000)
+            {
+                gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION";
+            }
         }
             
     }
