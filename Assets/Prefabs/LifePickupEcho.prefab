@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2372020146758268048}
   - component: {fileID: 8498085816054425006}
-  - component: {fileID: 1763316943202718913}
   - component: {fileID: 6144656962426729248}
   - component: {fileID: 4921515850240006211}
   - component: {fileID: 6157321238886253184}
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3edb2b56f91055c4d9d43b9401e40491, type: 3}
-  m_Color: {r: 1, g: 0.93624955, b: 0.28627452, a: 1}
+  m_Color: {r: 0.7549674, g: 0.3607843, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!64 &1763316943202718913
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4407306052120221733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!114 &6144656962426729248
 MonoBehaviour:
   m_ObjectHideFlags: 0
