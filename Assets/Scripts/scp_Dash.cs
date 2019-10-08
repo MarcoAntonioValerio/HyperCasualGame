@@ -86,25 +86,25 @@ public class scp_Dash : MonoBehaviour
         if (newPosition == lerpPositionArray[4].transform.position)
         {
             newPosition = lerpPositionArray[3].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime) ;
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime) ;
 
         }
         else if (newPosition == lerpPositionArray[3].transform.position)
         {
             newPosition = lerpPositionArray[2].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[2].transform.position)
         {
             newPosition = lerpPositionArray[1].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[1].transform.position)
         {
             newPosition = lerpPositionArray[0].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
     }
@@ -114,25 +114,25 @@ public class scp_Dash : MonoBehaviour
         if (newPosition == lerpPositionArray[0].transform.position)
         {
             newPosition = lerpPositionArray[1].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[1].transform.position)
         {
             newPosition = lerpPositionArray[2].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[2].transform.position)
         {
             newPosition = lerpPositionArray[3].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[3].transform.position)
         {
             newPosition = lerpPositionArray[4].transform.position;
-            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
 
         }
     }
