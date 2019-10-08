@@ -45,5 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   timeLeft: 60
-  packageValues: d2040000e1fdffff
+  packageValues: 40e20100b72bffff
   successRate: 0
+  lives: 5
+  playTime: 0

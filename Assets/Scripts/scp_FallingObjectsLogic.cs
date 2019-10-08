@@ -16,6 +16,12 @@ public class scp_FallingObjectsLogic : MonoBehaviour
     private Vector2 posC;
     private Vector2 posD;
     private Vector2 posE;
+    private Vector2 posF;
+    private Vector2 posG;
+    private Vector2 posH;
+    private Vector2 posI;
+    private Vector2 posL;
+    private Vector2 posM;
     //Timer Method Variables
     public float countdown = 3f;
     public float timer = 3f;
@@ -61,19 +67,30 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         posC = spawners[2].transform.position;
         posD = spawners[3].transform.position;
         posE = spawners[4].transform.position;
+        /*posF = spawners[5].transform.position;
+        posG = spawners[6].transform.position;
+        posH = spawners[7].transform.position;
+        posI = spawners[8].transform.position;
+        posL = spawners[9].transform.position;
+        posM = spawners[10].transform.position;*/
 
         posArray[0] = posA;
         posArray[1] = posB;
         posArray[2] = posC;
         posArray[3] = posD;
         posArray[4] = posE;
+        /*posArray[5] = posF;
+        posArray[6] = posG;
+        posArray[7] = posH;
+        posArray[8] = posI;
+        posArray[9] = posL;
+        posArray[10] = posM;*/
 
         gameMan = FindObjectOfType<scp_GameManager>();
         
 
         countdown = Mathf.Clamp(timer, 0, 10);
     }
-
     private void Countdown()
     {
         countdown -= Time.deltaTime;
@@ -101,7 +118,6 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         }
         
     }
-
     private void DeployPackage()
     {    
        
@@ -155,7 +171,6 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
         hasBeenDeployed = true;
     }
-
     private void DeployLife()
     {
         
@@ -199,7 +214,6 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         }
 
     }
-
     private void DeployCaseZero()
     {
         countdown -= Time.deltaTime;

@@ -211,6 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb3907f1af37df4c96d5ee577fbe1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 0}
+  audioObject: {fileID: 0}
+  greenCollected: 0
 --- !u!114 &8843590717496975853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae1817d55d0f4044a59d76f27ec29c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 0
-  startDashTime: 0
+  dashSpeed: 28
+  startDashTime: 0.08
   direction: 0
 --- !u!114 &3914752866962700246
 MonoBehaviour:

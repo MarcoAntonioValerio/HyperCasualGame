@@ -7,9 +7,13 @@ public class scp_Dash : MonoBehaviour
     private Rigidbody2D rb;
     public float dashSpeed;
     private float dashTime;
+    public float lerpTime = 2f;
     public float startDashTime;
     public int direction;
-    private scp_AudioManager audio;
+    private scp_AudioManager audioManager;
+
+    public Transform[] lerpPositionArray;
+    private Vector3 newPosition;
     
     //Dash Particles Variables
     //public ParticleSystem dashParticlesLeft;
@@ -24,14 +28,17 @@ public class scp_Dash : MonoBehaviour
 
     void Update()
     {
+        
         Dash();
     }
     private void SetupVariables()
     {
+        this.transform.position = lerpPositionArray[2].transform.position;
+        newPosition = this.transform.position;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         anim = GetComponent<Animator>();
-        audio = GameObject.Find("Pickups").GetComponent<scp_AudioManager>();
+        audioManager = GameObject.Find("Dash").GetComponent<scp_AudioManager>();
     }    
     
 
@@ -43,18 +50,18 @@ public class scp_Dash : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                rb.velocity = Vector2.right * dashSpeed;
+                LerpingPositionsRight();
                 direction = 2;               
                 anim.SetBool("isDashing", true);
-                audio.Dash();
+                audioManager.Dash();
                 
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                rb.velocity = Vector2.left * dashSpeed;
+                LerpingPositionsLeft();
                 direction = 1;                
                 anim.SetBool("isDashing", true);
-                audio.Dash();
+                audioManager.Dash();
 
             }
         }
@@ -70,6 +77,63 @@ public class scp_Dash : MonoBehaviour
             {
                 dashTime -= Time.deltaTime;
             }
+        }
+    }
+
+    void LerpingPositionsLeft()
+    {
+        //Debug.Log("Lerping Fired!");
+        if (newPosition == lerpPositionArray[4].transform.position)
+        {
+            newPosition = lerpPositionArray[3].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime) ;
+
+        }
+        else if (newPosition == lerpPositionArray[3].transform.position)
+        {
+            newPosition = lerpPositionArray[2].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
+        }
+        else if (newPosition == lerpPositionArray[2].transform.position)
+        {
+            newPosition = lerpPositionArray[1].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
+        }
+        else if (newPosition == lerpPositionArray[1].transform.position)
+        {
+            newPosition = lerpPositionArray[0].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
+        }
+    }
+    void LerpingPositionsRight()
+    {
+        Debug.Log("Lerping Fired!");
+        if (newPosition == lerpPositionArray[0].transform.position)
+        {
+            newPosition = lerpPositionArray[1].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
+        }
+        else if (newPosition == lerpPositionArray[1].transform.position)
+        {
+            newPosition = lerpPositionArray[2].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
+        }
+        else if (newPosition == lerpPositionArray[2].transform.position)
+        {
+            newPosition = lerpPositionArray[3].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
+        }
+        else if (newPosition == lerpPositionArray[3].transform.position)
+        {
+            newPosition = lerpPositionArray[4].transform.position;
+            transform.position = Vector2.Lerp(transform.position, newPosition,  lerpTime);
+
         }
     }
 }

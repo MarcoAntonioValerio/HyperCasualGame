@@ -46,7 +46,7 @@ public class scp_AudioManager : MonoBehaviour
         audioManager.clip = goodPickupSound;
         audioManager.pitch = Random.Range(0.9f, 1.1f);
         audioManager.PlayOneShot(goodPickupSound);
-        audioManager.volume = 1f;
+        audioManager.volume = 2f;
     }
     public void BadPickupSound()
     {
@@ -64,9 +64,9 @@ public class scp_AudioManager : MonoBehaviour
     public void Dash()
     {
         audioManager.clip = dashSound;
-        audioManager.pitch = Random.Range(0.9f, 1.1f);
+        audioManager.pitch = Random.Range(0.7f, 1f);
         audioManager.PlayOneShot(dashSound);
-        audioManager.volume = 0.4f;
+        audioManager.volume = 0.1f;
     }
     public void LifePickupSound()
     {

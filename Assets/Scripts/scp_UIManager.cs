@@ -78,53 +78,54 @@ public class scp_UIManager : MonoBehaviour
     {
         if (gameOverScoreComment != null)
         {
-            if (gameManager.score < 2000)
+            if (gameManager.score < 200000)
             {
                 gameOverScoreComment.text = "HUMAN, TRY AGAIN - RESTART SESSION";
             }
-            else if (gameManager.score >= 2000 && gameManager.score < 5000)
+            else if (gameManager.score >= 200000 && gameManager.score < 500000)
             {
                 gameOverScoreComment.text = "LOW SKILL DETECTED - RESTART SESSION";
             }
-            else if (gameManager.score >= 5000 && gameManager.score < 10000)
+            else if (gameManager.score >= 500000 && gameManager.score < 1000000)
             {
                 gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION";
             }
-            else if (gameManager.score >= 5000 && gameManager.score < 10000)
+
+            else if (gameManager.score >= 1000000 && gameManager.score < 3000000)
             {
-                gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION";
+                gameOverScoreComment.text = "ASCENSION LEVEL NOT ACHIEVED - RESTART SESSION";
             }
-            else if (gameManager.score >= 10000 && gameManager.score < 30000)
+            else if (gameManager.score >= 3000000 && gameManager.score < 6000000)
             {
-                gameOverScoreComment.text = "ASCENSION LEVEL - RESTART SESSION";
+                gameOverScoreComment.text = "KEEP PLAYING PUNY HUMAN - RESTART SESSION";
             }
-            else if (gameManager.score >= 30000 && gameManager.score < 60000)
+            else if (gameManager.score >= 6000000 && gameManager.score < 10000000)
             {
-                gameOverScoreComment.text = "GODLIKE - RESTART SESSION";
+                gameOverScoreComment.text = "NOT QUITE MY TEMPO - RESTART SESSION";
             }
-            else if (gameManager.score >= 60000 && gameManager.score < 100000)
+            else if (gameManager.score >= 10000000 && gameManager.score < 20000000)
             {
-                gameOverScoreComment.text = "01001101011 - RESTART SESSION";
+                gameOverScoreComment.text = "ASCENSION LEVEL ACHIEVED, I WAS JOKING KEEP GOING  - RESTART SESSION";
             }
-            else if (gameManager.score >= 100000 && gameManager.score < 200000)
+            else if (gameManager.score >= 20000000 && gameManager.score < 30000000)
             {
-                gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION";
+                gameOverScoreComment.text = "WELL DONE, HUMAN- RESTART SESSION";
             }
-            else if (gameManager.score >= 200000 && gameManager.score < 300000)
-            {
-                gameOverScoreComment.text = "Jesus - RESTART SESSION";
-            }
-            else if (gameManager.score >= 300000 && gameManager.score < 400000)
+            else if (gameManager.score >= 30000000 && gameManager.score < 40000000)
             {
                 gameOverScoreComment.text = "SHOW THIS SCORE TO YOUR MOM - RESTART SESSION";
             }
-            else if (gameManager.score >= 400000 && gameManager.score < 500000)
+            else if (gameManager.score >= 40000000 && gameManager.score < 50000000)
             {
                 gameOverScoreComment.text = "YOU ARE A PROFESSIONAL NOW - RESTART SESSION";
             }
-            else if (gameManager.score >= 500000 && gameManager.score < 600000)
+            else if (gameManager.score >= 50000000 && gameManager.score < 60000000)
             {
-                gameOverScoreComment.text = "GOOD JOB, I TIP MY HAT TO YOU - RESTART SESSION";
+                gameOverScoreComment.text = "CHALLENGE SOMEONE TO BEAT YOUR SCORE - RESTART SESSION";
+            }
+            else if (gameManager.score > 60000000)
+            {
+                gameOverScoreComment.text = "YOU HAVE ASCENDED, SEND ME YOUR SCORE HUMAN - TWITTER @iS_m4v - RESTART SESSION";
             }
         }
             

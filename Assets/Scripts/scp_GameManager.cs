@@ -77,7 +77,7 @@ public class scp_GameManager : MonoBehaviour
 
     private void ValuesClamping()
     {
-        score = Mathf.Clamp(score, 0, 10000000);
+        score = Mathf.Clamp(score, 0, 100000000);
         successRate = Mathf.Clamp(successRate, 0, 100);
         timeLeft = Mathf.Clamp(timeLeft, 0, 120);
         lives = Mathf.Clamp(lives, 0, 10);
