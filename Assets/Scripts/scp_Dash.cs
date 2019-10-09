@@ -18,6 +18,7 @@ public class scp_Dash : MonoBehaviour
     private Vector3 newPosition;
     //[SerializeField] private float timeDivider = 2f;
     private int arrayNumber = 2;
+    private float timePercentage = 0f;
 
     //Dash Particles Variables
     //public ParticleSystem dashParticlesLeft;
@@ -161,7 +162,7 @@ public class scp_Dash : MonoBehaviour
 
     private IEnumerator MoveToNextPositionToTheLeft()
     {
-        float timePercentage = 0f;
+        
         Vector3 startPos = transform.position;
         arrayNumber--;
         Clamper();
@@ -175,7 +176,7 @@ public class scp_Dash : MonoBehaviour
     }
     private IEnumerator MoveToNextPositionToTheRight()
     {
-        float timePercentage = 0f;
+        //float timePercentage = 0f;
         Vector3 startPos = transform.position;
         arrayNumber++;
         Clamper();
