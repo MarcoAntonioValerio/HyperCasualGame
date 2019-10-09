@@ -7,14 +7,18 @@ public class scp_Dash : MonoBehaviour
     private Rigidbody2D rb;
     public float dashSpeed;
     private float dashTime;
-    public float lerpTime = 2f;
+    
     public float startDashTime;
     public int direction;
     private scp_AudioManager audioManager;
-
+    //LerpStuff
     public Transform[] lerpPositionArray;
+    private float lerpTime = 0.2f;
+    //[SerializeField]private float percentage = 1f;
     private Vector3 newPosition;
-    
+    //[SerializeField] private float timeDivider = 2f;
+    private int arrayNumber = 2;
+
     //Dash Particles Variables
     //public ParticleSystem dashParticlesLeft;
     //public ParticleSystem dashParticlesRight;
@@ -26,11 +30,24 @@ public class scp_Dash : MonoBehaviour
         SetupVariables();
     }
 
-    void Update()
+    private void Start()
     {
         
+    }
+    void Update()
+    {
+        Debug.Log("We are at array position number " + arrayNumber);
+        
+
         Dash();
     }
+
+    private void Clamper()
+    {
+        if (arrayNumber <= 0) { arrayNumber = 0; }
+        if (arrayNumber >= 4) { arrayNumber = 4; }
+    }
+
     private void SetupVariables()
     {
         this.transform.position = lerpPositionArray[2].transform.position;
@@ -39,6 +56,10 @@ public class scp_Dash : MonoBehaviour
         rb.gravityScale = 0;
         anim = GetComponent<Animator>();
         audioManager = GameObject.Find("Dash").GetComponent<scp_AudioManager>();
+        //lerpTime += Time.deltaTime / timeDivider;
+        
+        
+
     }    
     
 
@@ -50,7 +71,8 @@ public class scp_Dash : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                LerpingPositionsRight();
+                StartCoroutine(MoveToNextPositionToTheRight());
+                //LerpingPositionsRight();
                 direction = 2;               
                 anim.SetBool("isDashing", true);
                 audioManager.Dash();
@@ -58,7 +80,8 @@ public class scp_Dash : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                LerpingPositionsLeft();
+                StartCoroutine(MoveToNextPositionToTheLeft());
+                //LerpingPositionsLeft();
                 direction = 1;                
                 anim.SetBool("isDashing", true);
                 audioManager.Dash();
@@ -80,31 +103,30 @@ public class scp_Dash : MonoBehaviour
         }
     }
 
-    void LerpingPositionsLeft()
+    /*void LerpingPositionsLeft()
     {
         //Debug.Log("Lerping Fired!");
         if (newPosition == lerpPositionArray[4].transform.position)
         {
-            newPosition = lerpPositionArray[3].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime) ;
+            //StartCoroutine(MoveToNextPositionToTheLeft());
 
         }
         else if (newPosition == lerpPositionArray[3].transform.position)
         {
             newPosition = lerpPositionArray[2].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[2].transform.position)
         {
             newPosition = lerpPositionArray[1].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[1].transform.position)
         {
             newPosition = lerpPositionArray[0].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime);
 
         }
     }
@@ -114,26 +136,55 @@ public class scp_Dash : MonoBehaviour
         if (newPosition == lerpPositionArray[0].transform.position)
         {
             newPosition = lerpPositionArray[1].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[1].transform.position)
         {
             newPosition = lerpPositionArray[2].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[2].transform.position)
         {
             newPosition = lerpPositionArray[3].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime);
 
         }
         else if (newPosition == lerpPositionArray[3].transform.position)
         {
             newPosition = lerpPositionArray[4].transform.position;
-            transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * lerpTime);
+            transform.position = Vector3.Lerp(transform.position, newPosition, percentage * lerpTime) ;
 
         }
+    }*/
+
+    private IEnumerator MoveToNextPositionToTheLeft()
+    {
+        float timePercentage = 0f;
+        Vector3 startPos = transform.position;
+        arrayNumber--;
+        Clamper();
+        while (timePercentage < 1)
+        {
+            timePercentage += Time.deltaTime / lerpTime;            
+            transform.position = Vector3.Lerp(startPos, lerpPositionArray[arrayNumber].transform.position, timePercentage);
+            yield return null;
+        }
+        
+    }
+    private IEnumerator MoveToNextPositionToTheRight()
+    {
+        float timePercentage = 0f;
+        Vector3 startPos = transform.position;
+        arrayNumber++;
+        Clamper();
+        while (timePercentage < 1)
+        {
+            timePercentage += Time.deltaTime / lerpTime;
+            transform.position = Vector3.Lerp(startPos, lerpPositionArray[arrayNumber].transform.position, timePercentage);
+            yield return null;
+        }
+
     }
 }
