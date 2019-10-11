@@ -67,24 +67,14 @@ public class scp_FallingObjectsLogic : MonoBehaviour
         posC = spawners[2].transform.position;
         posD = spawners[3].transform.position;
         posE = spawners[4].transform.position;
-        /*posF = spawners[5].transform.position;
-        posG = spawners[6].transform.position;
-        posH = spawners[7].transform.position;
-        posI = spawners[8].transform.position;
-        posL = spawners[9].transform.position;
-        posM = spawners[10].transform.position;*/
+        
 
         posArray[0] = posA;
         posArray[1] = posB;
         posArray[2] = posC;
         posArray[3] = posD;
         posArray[4] = posE;
-        /*posArray[5] = posF;
-        posArray[6] = posG;
-        posArray[7] = posH;
-        posArray[8] = posI;
-        posArray[9] = posL;
-        posArray[10] = posM;*/
+        
 
         gameMan = FindObjectOfType<scp_GameManager>();
         
@@ -112,13 +102,13 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
         if (timer <= 0)
         {
-            DeployPackage();
+            DeployPackage_Beginning();
             timer = 3f;
             
         }
         
     }
-    private void DeployPackage()
+    private void DeployPackage_Beginning()
     {    
        
         switch (packageRandomness)
@@ -168,6 +158,114 @@ public class scp_FallingObjectsLogic : MonoBehaviour
                 break;          
             
         }        
+
+        hasBeenDeployed = true;
+    }
+    private void DeployPackage_Middle()
+    {
+
+        switch (packageRandomness)
+        {
+            case 0:
+                Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 1:
+                Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = false;
+                break;
+            case 2:
+                Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = false;
+                break;
+            case 3:
+                Instantiate(packages[3], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 4:
+                Instantiate(packages[4], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 5:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 6:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 7:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 8:
+                Instantiate(packages[8], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 9:
+                Instantiate(packages[9], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 10:
+                Instantiate(packages[10], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+
+        }
+
+        hasBeenDeployed = true;
+    }
+    private void DeployPackage_End()
+    {
+
+        switch (packageRandomness)
+        {
+            case 0:
+                Instantiate(packages[0], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 1:
+                Instantiate(packages[1], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = false;
+                break;
+            case 2:
+                Instantiate(packages[2], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = false;
+                break;
+            case 3:
+                Instantiate(packages[3], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 4:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 5:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 6:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 7:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 8:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 9:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+            case 10:
+                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                amIaGoodPackage = true;
+                break;
+
+        }
 
         hasBeenDeployed = true;
     }
@@ -223,7 +321,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
             if (timer <= 0)
             {
-                DeployPackage();
+                DeployPackage_Beginning();
                 timer = 3f;
             }
         }
@@ -237,7 +335,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
             if (timer <= 0)
             {
-                DeployPackage();
+                DeployPackage_Beginning();
                 timer = 2f;
             }
         }
@@ -251,7 +349,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
             if (timer <= 0)
             {
-                DeployPackage();
+                DeployPackage_Middle();
                 timer = 1f;
             }
         }
@@ -265,7 +363,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
             if (timer <= 0)
             {
-                DeployPackage();
+                DeployPackage_Middle();
                 timer = 0.5f;
             }
         }
@@ -279,7 +377,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
             if (timer <= 0)
             {
-                DeployPackage();
+                DeployPackage_End();
                 timer = 0.25f;
             }
         }
@@ -293,7 +391,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
 
             if (timer <= 0)
             {
-                DeployPackage();
+                DeployPackage_End();
                 timer = 0.10f;
             }
         }
