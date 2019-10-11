@@ -18,6 +18,8 @@ public class scp_Dash : MonoBehaviour
     private Vector3 newPosition;
     //[SerializeField] private float timeDivider = 2f;
     private int arrayNumber = 2;
+    public bool waiting;
+    
     
     [SerializeField]float timePercentage = 0f;
 
@@ -65,20 +67,22 @@ public class scp_Dash : MonoBehaviour
         if (direction == 0)
         {
             anim.SetBool("isDashing", false);
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (!waiting)
             {
-                StartCoroutine(MoveToNextPositionToTheRight());
-                direction = 2;
-                anim.SetBool("isDashing", true);
-                audioManager.Dash();
-
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                StartCoroutine(MoveToNextPositionToTheLeft());
-                direction = 1;
-                anim.SetBool("isDashing", true);
-                audioManager.Dash();
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    StartCoroutine(MoveToNextPositionToTheRight());
+                    direction = 2;
+                    anim.SetBool("isDashing", true);
+                    audioManager.Dash();
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    StartCoroutine(MoveToNextPositionToTheLeft());
+                    direction = 1;
+                    anim.SetBool("isDashing", true);
+                    audioManager.Dash();
+                }
             }
             
         }
@@ -101,7 +105,7 @@ public class scp_Dash : MonoBehaviour
 
     private IEnumerator MoveToNextPositionToTheLeft()
     {
-        
+        waiting = true;
         float timePercentage = 0f;
         Vector3 startPos = transform.position;
         arrayNumber--;
@@ -112,13 +116,12 @@ public class scp_Dash : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, lerpPositionArray[arrayNumber].transform.position, timePercentage);
             yield return null;
             
-            
         }
-        
+        waiting = false;
     }
     private IEnumerator MoveToNextPositionToTheRight()
     {
-        
+        waiting = true;
         float timePercentage = 0f;
         Vector3 startPos = transform.position;
         arrayNumber++;
@@ -131,6 +134,7 @@ public class scp_Dash : MonoBehaviour
             
             
         }
-
+        waiting = false;
     }
+    
 }
