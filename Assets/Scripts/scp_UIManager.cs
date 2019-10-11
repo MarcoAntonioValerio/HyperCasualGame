@@ -12,7 +12,8 @@ public class scp_UIManager : MonoBehaviour
     private scp_FallingObjectsLogic packages;
     private scp_GameManager gameManager;
     public  TextMeshProUGUI scoreTextBox;
-    public  TextMeshProUGUI timerTextBox;
+    public  TextMeshProUGUI livesTextBox;
+    public  Text            timeTextBox;
     public  GameObject minusOneLifePosition;
     public  GameObject minusOneLife;
     public  GameObject plusOneLife;
@@ -54,20 +55,24 @@ public class scp_UIManager : MonoBehaviour
         {
             scoreTextBox.text = "SCORE:" + gameManager.score.ToString();
         }
-        if (timerTextBox != null)
+        if (livesTextBox != null)
         {
-            timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
+            livesTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
         }
-            
+        if (timeTextBox != null)
+        {
+            timeTextBox.text = "TIME: " + gameManager.playTime.ToString("f0");
+        }
+
     }
 
     private void ChangeTimerColor()
     {
-        if (timerTextBox != null)
+        if (livesTextBox != null)
         {
             if (gameManager.lives < 2)
             {
-                timerTextBox.color = new Color(1, 0, 0);
+                livesTextBox.color = new Color(1, 0, 0);
             }
         }
         
@@ -158,12 +163,10 @@ public class scp_UIManager : MonoBehaviour
         scoreTextBox        = GameObject.Find("txtPro_Score").GetComponent<TextMeshProUGUI>();
         scoreTextBox.text   = "SCORE:" + gameManager.score.ToString();
 
-        timerTextBox = GameObject.Find("txtPro_Timer").GetComponent<TextMeshProUGUI>();
-        timerTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
+        livesTextBox = GameObject.Find("txtPro_Lives").GetComponent<TextMeshProUGUI>();
+        livesTextBox.text = "LIVES: " + gameManager.lives.ToString("f0");
 
-
-
-        
+        timeTextBox = GameObject.Find("txt_Timer").GetComponent<Text>();      
 
     }
 
