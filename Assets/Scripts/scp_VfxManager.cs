@@ -98,7 +98,6 @@ public class scp_VfxManager : MonoBehaviour
             case 0: glitch.intensity = Mathf.Lerp(glitchStageFour, glitchEnd, 0.2f ); break;
         }
     }
-
     private void GameOverSceneEffects()
     {
         glitch.intensity = glitchEnd;
@@ -108,9 +107,6 @@ public class scp_VfxManager : MonoBehaviour
 
     IEnumerator WaitThenReduceGlitch()
     {
-        yield return new WaitForSeconds(2);
-        
-        
-
+        yield return new WaitForSeconds(2);            
     }
 }

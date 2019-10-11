@@ -658,10 +658,10 @@ RectTransform:
   m_Father: {fileID: 2141554370}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -235.5, y: -71.20001}
-  m_SizeDelta: {x: 442.2, y: 100.7}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 248, y: -60}
+  m_SizeDelta: {x: 442.19995, y: 100.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &622443335
 MonoBehaviour:
@@ -1817,6 +1817,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: man_GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817018119564171570, guid: 8b35cd8ebf17bfa4aaf83b6304ea4fcf,
+        type: 3}
+      propertyPath: packageValues.Array.data[0]
+      value: 12345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817018119564171570, guid: 8b35cd8ebf17bfa4aaf83b6304ea4fcf,
+        type: 3}
+      propertyPath: packageValues.Array.data[1]
+      value: -5434
       objectReference: {fileID: 0}
     - target: {fileID: 4817018119564171573, guid: 8b35cd8ebf17bfa4aaf83b6304ea4fcf,
         type: 3}

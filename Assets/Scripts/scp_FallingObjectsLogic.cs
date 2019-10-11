@@ -195,7 +195,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
                 amIaGoodPackage = true;
                 break;
             case 7:
-                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                Instantiate(packages[7], posArray[packageLocation], Quaternion.identity);
                 amIaGoodPackage = true;
                 break;
             case 8:
@@ -241,7 +241,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
                 amIaGoodPackage = true;
                 break;
             case 5:
-                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                Instantiate(packages[4], posArray[packageLocation], Quaternion.identity);
                 amIaGoodPackage = true;
                 break;
             case 6:
@@ -249,7 +249,7 @@ public class scp_FallingObjectsLogic : MonoBehaviour
                 amIaGoodPackage = true;
                 break;
             case 7:
-                Instantiate(packages[5], posArray[packageLocation], Quaternion.identity);
+                Instantiate(packages[6], posArray[packageLocation], Quaternion.identity);
                 amIaGoodPackage = true;
                 break;
             case 8:

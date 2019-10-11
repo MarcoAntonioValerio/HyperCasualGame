@@ -83,52 +83,52 @@ public class scp_UIManager : MonoBehaviour
     {
         if (gameOverScoreComment != null)
         {
-            if (gameManager.score < 200000)
+            if (gameManager.score < 20000)
             {
                 gameOverScoreComment.text = "HUMAN, TRY AGAIN - RESTART SESSION";
             }
-            else if (gameManager.score >= 200000 && gameManager.score < 500000)
+            else if (gameManager.score >= 20000 && gameManager.score < 50000)
             {
                 gameOverScoreComment.text = "LOW SKILL DETECTED - RESTART SESSION";
             }
-            else if (gameManager.score >= 500000 && gameManager.score < 1000000)
+            else if (gameManager.score >= 50000 && gameManager.score < 100000)
             {
                 gameOverScoreComment.text = "MINIMUM TARGET ACHIEVED - RESTART SESSION";
             }
 
-            else if (gameManager.score >= 1000000 && gameManager.score < 3000000)
+            else if (gameManager.score >= 100000 && gameManager.score < 300000)
             {
                 gameOverScoreComment.text = "ASCENSION LEVEL NOT ACHIEVED - RESTART SESSION";
             }
-            else if (gameManager.score >= 3000000 && gameManager.score < 6000000)
+            else if (gameManager.score >= 300000 && gameManager.score < 600000)
             {
                 gameOverScoreComment.text = "KEEP PLAYING PUNY HUMAN - RESTART SESSION";
             }
-            else if (gameManager.score >= 6000000 && gameManager.score < 10000000)
+            else if (gameManager.score >= 600000 && gameManager.score < 1000000)
             {
                 gameOverScoreComment.text = "NOT QUITE MY TEMPO - RESTART SESSION";
             }
-            else if (gameManager.score >= 10000000 && gameManager.score < 20000000)
+            else if (gameManager.score >= 1000000 && gameManager.score < 2000000)
             {
                 gameOverScoreComment.text = "ASCENSION LEVEL ACHIEVED, I WAS JOKING KEEP GOING  - RESTART SESSION";
             }
-            else if (gameManager.score >= 20000000 && gameManager.score < 30000000)
+            else if (gameManager.score >= 2000000 && gameManager.score < 3000000)
             {
                 gameOverScoreComment.text = "WELL DONE, HUMAN- RESTART SESSION";
             }
-            else if (gameManager.score >= 30000000 && gameManager.score < 40000000)
+            else if (gameManager.score >= 3000000 && gameManager.score < 4000000)
             {
                 gameOverScoreComment.text = "SHOW THIS SCORE TO YOUR MOM - RESTART SESSION";
             }
-            else if (gameManager.score >= 40000000 && gameManager.score < 50000000)
+            else if (gameManager.score >= 4000000 && gameManager.score < 5000000)
             {
                 gameOverScoreComment.text = "YOU ARE A PROFESSIONAL NOW - RESTART SESSION";
             }
-            else if (gameManager.score >= 50000000 && gameManager.score < 60000000)
+            else if (gameManager.score >= 5000000 && gameManager.score < 6000000)
             {
                 gameOverScoreComment.text = "CHALLENGE SOMEONE TO BEAT YOUR SCORE - RESTART SESSION";
             }
-            else if (gameManager.score > 60000000)
+            else if (gameManager.score > 6000000)
             {
                 gameOverScoreComment.text = "YOU HAVE ASCENDED, SEND ME YOUR SCORE HUMAN - TWITTER @iS_m4v - RESTART SESSION";
             }
